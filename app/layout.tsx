@@ -7,8 +7,8 @@ import { Suspense } from "react"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "Loja de Fraldas - Chá de Fraldas da Sophia",
-  description: "Escolha as fraldas perfeitas para nossa pequena Sophia. Fácil, prático, com Pix e cartão.",
+  title: "Boutique Sophia - Chá de Fraldas Premium",
+  description: "Uma curadoria exclusiva de produtos premium para o chá de fraldas da pequena Sophia. Experiência boutique com entrega cuidadosa e pagamento seguro.",
   generator: "v0.app",
 }
 
