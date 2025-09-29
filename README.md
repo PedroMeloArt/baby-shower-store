@@ -272,6 +272,28 @@ Apenas os componentes essenciais foram mantidos:
 
 Todos os outros 42 componentes UI não utilizados foram removidos para manter o codebase limpo e focado.
 
+## 📋 To-Do List
+
+### Próximas Funcionalidades e Melhorias
+
+1. **Enable User Messages on Purchase**  
+   Permitir que os usuários enviem uma mensagem ao completar uma compra. Explorar opções para armazenar ou transmitir essas mensagens em tempo real, como salvá-las em um repositório público do GitHub (adequado para hospedagem no GitHub Pages).
+
+2. **Track Purchased Items**  
+   Implementar uma forma de registrar e visualizar quais itens cada usuário comprou. Considerar salvar essas informações ou enviá-las em tempo real, possivelmente usando um repositório público do GitHub como armazenamento.
+
+3. **Integrate Stripe Payments**  
+   Adicionar integração com Stripe para suportar pagamentos com cartão de crédito e débito.
+
+4. **Add Product Images**  
+   Incluir imagens para todos os produtos para melhorar a experiência do usuário.
+
+5. **Expand Product Catalog and Categories**  
+   Adicionar produtos adicionais e organizá-los em categorias apropriadas.
+
+6. **Update AI Baby Picture**  
+   Substituir a imagem atual de bebê gerada por IA por uma nova.
+
 ## 🤝 Contribuição
 
 1. Fork o projeto
