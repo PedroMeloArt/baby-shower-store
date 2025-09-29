@@ -1,30 +1,31 @@
-# 👶 Loja de Fraldas - Chá de Fraldas da Sophia
+# 👶 Boutique Sophia - Chá de Fraldas Premium
 
-Uma loja online elegante e moderna para o chá de fraldas da pequena Sophia, desenvolvida com Next.js e Tailwind CSS. O projeto oferece uma experiência de compra simplificada com carrinho de compras, filtros por marca e tamanho, e integração de pagamento.
+Uma boutique online elegante e moderna para o chá de fraldas da pequena Sophia, desenvolvida com Next.js 14 e Tailwind CSS. O projeto oferece uma experiência de compra sofisticada com carrinho de compras, filtros por marca e tamanho, e sistema de pagamento integrado.
 
 ## ✨ Características
 
-- 🛒 **Carrinho de Compras Interativo** - Adicione, remova e ajuste quantidades
-- 🏷️ **Filtros Inteligentes** - Por marca (Pampers, Huggies, MamyPoko) e tamanho (RN, P, M, G)
-- 📱 **Design Responsivo** - Funciona perfeitamente em desktop, tablet e mobile
+- 🛒 **Carrinho de Compras Interativo** - Adicione, remova e ajuste quantidades em tempo real
+- 🏷️ **Filtros Inteligentes** - Filtre por marca (Pampers, Huggies, MamyPoko) e categorias (Fraldas, Kits)
+- 📊 **Ordenação Avançada** - Ordene produtos por nome, preço ou avaliação
+- 📱 **Design Responsivo** - Interface otimizada para desktop, tablet e mobile
 - 💳 **Múltiplas Formas de Pagamento** - PIX instantâneo e cartão de crédito/débito
-- 🎨 **UI Moderna** - Interface elegante com gradientes e animações suaves
-- ⚡ **Performance Otimizada** - Carregamento rápido e experiência fluida
-- 🌐 **Estático** - Pronto para deploy em GitHub Pages, Netlify, Vercel
+- 🎨 **UI Boutique de Luxo** - Interface elegante com paleta rosa sofisticada e animações suaves
+- ⚡ **Performance Otimizada** - Carregamento rápido com React useMemo para cálculos otimizados
+- 🌐 **Export Estático** - Pronto para deploy em GitHub Pages, Netlify, Vercel
 
 ## 🚀 Quick Start
 
 ### Pré-requisitos
 
-- Node.js 18+ 
+- Node.js 18 ou superior
 - npm, yarn ou pnpm
 
 ### Instalação
 
 1. **Clone o repositório**
    ```bash
-   git clone https://github.com/seu-usuario/loja-fraldas.git
-   cd loja-fraldas
+   git clone https://github.com/seu-usuario/boutique-sophia.git
+   cd boutique-sophia
    ```
 
 2. **Instale as dependências**
@@ -53,63 +54,78 @@ Uma loja online elegante e moderna para o chá de fraldas da pequena Sophia, des
 ### Build para Produção
 
 ```bash
-# Gerar build estático
+# Gerar build otimizado
 npm run build
 
 # Os arquivos estáticos estarão na pasta 'out/'
 # Pronto para deploy em qualquer servidor estático
 ```
 
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Stack Tecnológica
 
-- **Framework**: Next.js 14
-- **Linguagem**: TypeScript
-- **Estilização**: Tailwind CSS
-- **Componentes**: Radix UI + shadcn/ui
+- **Framework**: Next.js 14.2.16
+- **Linguagem**: TypeScript 5
+- **Estilização**: Tailwind CSS 4.1.9
+- **Componentes UI**: Radix UI + shadcn/ui (personalizados)
 - **Ícones**: Lucide React
 - **Fontes**: Geist Sans & Mono
 - **Analytics**: Vercel Analytics
-- **Pagamentos**: Stripe (integrado)
+- **Animações**: tw-animate-css
 
 ## 📁 Estrutura do Projeto
 
 ```
-loja-fraldas/
-├── app/                    # App Router do Next.js
-│   ├── globals.css        # Estilos globais
-│   ├── layout.tsx         # Layout principal
-│   └── page.tsx           # Página inicial
-├── components/            # Componentes reutilizáveis
-│   └── ui/               # Componentes de UI (shadcn/ui)
-├── hooks/                # Custom hooks
-├── lib/                  # Utilitários
-├── public/               # Arquivos estáticos
-├── styles/               # Estilos adicionais
-├── out/                  # Build estático (gerado)
-└── package.json          # Dependências e scripts
+boutique-sophia/
+├── app/                      # App Router do Next.js
+│   ├── globals.css          # Estilos globais e tema luxury
+│   ├── layout.tsx           # Layout principal com fonts
+│   └── page.tsx             # Página principal (catálogo + carrinho)
+├── components/
+│   └── ui/                  # Componentes UI (apenas os usados)
+│       ├── accordion.tsx
+│       ├── badge.tsx
+│       ├── button.tsx
+│       └── card.tsx
+├── lib/
+│   └── utils.ts             # Utilitários (cn para merge de classes)
+├── public/
+│   └── Sophia-Gemini.png    # Imagem da hero section
+├── components.json          # Configuração shadcn/ui
+├── package.json             # Dependências e scripts
+├── tsconfig.json            # Configuração TypeScript
+└── README.md                # Este arquivo
 ```
 
 ## 🎨 Personalização
 
 ### Cores e Tema
-O projeto usa uma paleta de cores rosa/rose personalizada. Para alterar:
 
-1. Edite `tailwind.config.js` para modificar as cores
-2. Ajuste as classes CSS nos componentes
-3. Atualize as variáveis CSS em `globals.css`
+O projeto usa uma paleta de cores rosa/rose sofisticada para criar uma experiência boutique de luxo. Para personalizar:
+
+**Edite as variáveis CSS em `app/globals.css`:**
+
+```css
+:root {
+  --primary: oklch(0.25 0.2 340);           /* Rose escuro */
+  --accent: oklch(0.92 0.04 345);           /* Champagne pink */
+  --boutique-shadow: oklch(0.85 0.03 340);  /* Sombra rosa suave */
+  /* ... outras variáveis */
+}
+```
 
 ### Produtos
+
 Para adicionar/editar produtos, modifique o array `products` em `app/page.tsx`:
 
 ```typescript
-const products = [
+const products: Product[] = [
   {
     id: 1,
     brand: "Pampers",
     size: "RN",
     count: 20,
     price: "R$ 25,90",
-    category: "RN",
+    category: "Fraldas",
     rating: 4.8,
     description: "Proteção premium para recém-nascidos",
   },
@@ -118,19 +134,23 @@ const products = [
 ```
 
 ### Informações do Evento
-Altere as informações do chá de fraldas em `app/page.tsx`:
+
+Altere as informações do chá de fraldas na seção footer de `app/page.tsx`:
 
 ```typescript
-// Data do evento
-<span className="font-medium">25 de outubro</span>
+// Data: linha ~666
+<p className="text-lg font-display font-medium">25 de Outubro</p>
 
-// Local
-<span className="font-medium">fortaleza</span>
+// Horário: linha ~678
+<p className="text-lg font-display font-medium">15:30</p>
 
-// Nome do bebê
-<span className="block font-medium bg-gradient-to-r from-rose-600 to-pink-600 bg-clip-text text-transparent">
-  sophia
-</span>
+// Local: linha ~690
+<p className="text-base font-display font-medium">Edf. Villa Damasco</p>
+
+// Endereço: linha ~699
+<p className="text-base font-body-luxury opacity-90 leading-relaxed">
+  Rua Tibúrcio Cavalcante, 255 - Meireles
+</p>
 ```
 
 ## 🚀 Deploy
@@ -139,10 +159,10 @@ Altere as informações do chá de fraldas em `app/page.tsx`:
 
 1. **Configure o repositório**
    ```bash
-   git remote add origin https://github.com/seu-usuario/loja-fraldas.git
+   git remote add origin https://github.com/seu-usuario/boutique-sophia.git
    ```
 
-2. **Crie um workflow do GitHub Actions** (`.github/workflows/deploy.yml`):
+2. **Crie um workflow** (`.github/workflows/deploy.yml`):
    ```yaml
    name: Deploy to GitHub Pages
    
@@ -176,47 +196,81 @@ Altere as informações do chá de fraldas em `app/page.tsx`:
    - **Publish directory**: `out`
 3. Deploy automático!
 
-### Vercel
+### Vercel (Recomendado)
 
 1. Conecte seu repositório
-2. Configure:
-   - **Framework Preset**: Next.js
-   - **Output Directory**: `out`
-3. Deploy!
+2. Vercel detecta automaticamente Next.js
+3. Deploy instantâneo!
 
 ## 🔧 Scripts Disponíveis
 
 ```bash
-npm run dev          # Servidor de desenvolvimento
-npm run build        # Build para produção
+npm run dev          # Servidor de desenvolvimento (http://localhost:3000)
+npm run build        # Build para produção (gera pasta out/)
 npm run start        # Servidor de produção
 npm run lint         # Linter ESLint
-npm run export       # Export estático (já configurado no build)
+npm run export       # Export estático (incluído no build)
 ```
 
-## 📱 Funcionalidades
+## 📱 Funcionalidades Detalhadas
 
 ### Carrinho de Compras
-- ✅ Adicionar/remover produtos
-- ✅ Ajustar quantidades
+- ✅ Adicionar produtos com um clique
+- ✅ Ajustar quantidades (+ / -)
+- ✅ Remover produtos
 - ✅ Cálculo automático do total
-- ✅ Persistência durante a sessão
+- ✅ Contador de itens no badge
+- ✅ Modal elegante com overlay
 
 ### Filtros e Ordenação
-- ✅ Filtrar por marca (Todas, Pampers, Huggies, MamyPoko, Kits)
-- ✅ Ordenar por nome, preço ou avaliação
-- ✅ Interface intuitiva
+- ✅ Filtrar por marca: Todas, Pampers, Huggies, MamyPoko, Kits
+- ✅ Ordenar por: Nome (A-Z, Z-A), Preço (crescente/decrescente), Avaliação
+- ✅ Agrupamento por categoria
+- ✅ Interface sticky que acompanha o scroll
 
-### Pagamento
-- ✅ Seleção de método (PIX/Cartão)
+### Sistema de Pagamento
+- ✅ Seleção de método: PIX ou Cartão
 - ✅ Interface preparada para integração Stripe
 - ✅ Validação de formulário
+- ✅ Feedback visual de seleção
 
-### Design
-- ✅ Responsivo (mobile-first)
-- ✅ Animações suaves
-- ✅ Gradientes e sombras
-- ✅ Acessibilidade
+### Design Boutique
+- ✅ Paleta rosa sofisticada com gradientes
+- ✅ Animações suaves (hover, float)
+- ✅ Sombras elegantes (boutique-shadow)
+- ✅ Typography luxury (Geist fonts)
+- ✅ Responsivo mobile-first
+- ✅ Acessibilidade (ARIA labels, focus states)
+
+## 🧹 Otimizações Realizadas
+
+### Limpeza de Código
+- ✅ Removidos 42 componentes UI não utilizados
+- ✅ Removidas 5 imagens placeholder não referenciadas
+- ✅ Removidas pastas e arquivos não utilizados (hooks/, styles/, theme-provider)
+- ✅ Imports otimizados (removidos Badge e CreditCard não usados)
+
+### Refatoração
+- ✅ Tipos TypeScript extraídos e reutilizáveis (Product, CartItem, PaymentMethod)
+- ✅ Código organizado com comentários descritivos
+- ✅ Props de componentes tipadas corretamente
+- ✅ useMemo para otimização de performance (filtros, carrinho)
+
+### Performance
+- ✅ Cálculos memorizados com useMemo
+- ✅ Build estático otimizado
+- ✅ Imagens otimizadas com Next.js Image
+- ✅ CSS purge automático do Tailwind
+
+## 📊 Componentes Mantidos
+
+Apenas os componentes essenciais foram mantidos:
+- `accordion` - FAQ section
+- `badge` - Status e badges
+- `button` - Botões interativos
+- `card` - Cards de produtos
+
+Todos os outros 42 componentes UI não utilizados foram removidos para manter o codebase limpo e focado.
 
 ## 🤝 Contribuição
 
@@ -228,15 +282,19 @@ npm run export       # Export estático (já configurado no build)
 
 ## 📄 Licença
 
-Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
+Este projeto é de código aberto e está disponível sob a licença MIT.
 
-## 📞 Contato
+## 📞 Informações do Evento
 
-- **Email**: email@email.com
-- **Evento**: Chá de Fraldas da Sophia
-- **Data**: 25 de outubro de 2025
-- **Local**: Fortaleza
+**Chá de Fraldas da Sophia**
+- 📅 **Data**: 25 de Outubro de 2025 (Sábado)
+- 🕐 **Horário**: 15:30
+- 📍 **Local**: Edf. Villa Damasco - Salão de Festas
+- 🏠 **Endereço**: Rua Tibúrcio Cavalcante, 255 - Meireles, Fortaleza - CE
+- 📱 **Contato**: (85) 99798-6787
 
 ---
 
-Feito com ❤️ para a pequena Sophia 👶
+Feito com 💖 para a pequena Sophia 👶
+
+*Boutique experience powered by Next.js, TypeScript, and Tailwind CSS*

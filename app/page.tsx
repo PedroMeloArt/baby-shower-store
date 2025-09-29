@@ -7,10 +7,28 @@ import { useState, useMemo } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Badge } from "@/components/ui/badge"
-import { ChevronDown, ShoppingCart, X, Plus, Minus, CreditCard, Heart, Star, Gift, Zap, Shield, QrCode, Calendar, Clock, MapPin, Phone } from "lucide-react"
+import { ChevronDown, ShoppingCart, X, Plus, Minus, Heart, Star, Gift, Zap, Shield, QrCode, Calendar, Clock, MapPin, Phone } from "lucide-react"
 
-const products = [
+// Types
+type Product = {
+  id: number
+  brand: string
+  size: string
+  count: string | number
+  price: string
+  category: string
+  rating: number
+  description: string
+}
+
+type CartItem = Product & {
+  quantity: number
+}
+
+type PaymentMethod = "pix" | "card" | null
+
+// Product Data
+const products: Product[] = [
   // Recém-Nascido
   {
     id: 1,
@@ -161,28 +179,16 @@ const sortOptions = [
   { value: "rating", label: "Melhor avaliação" },
 ]
 
-type CartItem = {
-  id: number
-  brand: string
-  size: string
-  count: string | number
-  price: string
-  quantity: number
-  description?: string
-}
-
-type PaymentMethod = "pix" | "card" | null
-
 const ProductCard = ({
   product,
   onAddToCart,
   cartItems,
   onUpdateQuantity,
 }: { 
-  product: (typeof products)[0]; 
-  onAddToCart: (product: (typeof products)[0]) => void;
-  cartItems: CartItem[];
-  onUpdateQuantity: (productId: number, newQuantity: number) => void;
+  product: Product
+  onAddToCart: (product: Product) => void
+  cartItems: CartItem[]
+  onUpdateQuantity: (productId: number, newQuantity: number) => void
 }) => {
   const cartItem = cartItems.find(item => item.id === product.id);
   const quantityInCart = cartItem?.quantity || 0;
@@ -280,7 +286,7 @@ export default function DiaperStore() {
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>(null)
 
 
-  const addToCart = (product: (typeof products)[0]) => {
+  const addToCart = (product: Product) => {
     setCart((prevCart) => {
       const existingItem = prevCart.find((item) => item.id === product.id)
       if (existingItem) {
