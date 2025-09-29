@@ -8,6 +8,7 @@ import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { ChevronDown, ShoppingCart, X, Plus, Minus, Heart, Star, Gift, Zap, Shield, QrCode, Calendar, Clock, MapPin, Phone } from "lucide-react"
+import { PixModal } from "@/components/pix-modal"
 
 // Types
 type Product = {
@@ -284,6 +285,7 @@ export default function DiaperStore() {
   const [cart, setCart] = useState<CartItem[]>([])
   const [isCartOpen, setIsCartOpen] = useState(false)
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>(null)
+  const [showPixModal, setShowPixModal] = useState(false)
 
 
   const addToCart = (product: Product) => {
@@ -768,7 +770,7 @@ export default function DiaperStore() {
               </Button>
             </div>
 
-            <div className="overflow-y-auto max-h-[60vh]">
+            <div className="overflow-y-auto" style={{ maxHeight: 'calc(90vh - 120px)' }}>
               {cart.length === 0 ? (
                 <div className="p-12 text-center text-muted-foreground">
                   <div className="w-16 h-16 bg-accent/30 rounded-3xl flex items-center justify-center mx-auto mb-4">
@@ -778,8 +780,9 @@ export default function DiaperStore() {
                   <p className="text-sm font-body-luxury">Adicione produtos para continuar</p>
                 </div>
               ) : (
-                <div className="p-8 space-y-6">
-                  {cart.map((item) => (
+                <>
+                  <div className="p-8 space-y-6">
+                    {cart.map((item) => (
                     <div key={item.id} className="flex items-center gap-6 p-6 border border-primary/10 rounded-2xl bg-accent/20 backdrop-luxury hover-lift">
                       <div className="w-20 h-20 bg-gradient-to-br from-accent/40 via-primary/10 to-accent/30 rounded-2xl flex items-center justify-center bg-boutique-shadow">
                         <div className="text-3xl">📦</div>
@@ -824,11 +827,8 @@ export default function DiaperStore() {
                     </div>
                   ))}
                 </div>
-              )}
-            </div>
 
-            {cart.length > 0 && (
-              <div className="border-t border-primary/10 p-8">
+                <div className="border-t border-primary/10 p-8">
                 <div className="flex items-center justify-between mb-8">
                   <span className="text-2xl font-display text-premium">Total:</span>
                   <span className="text-3xl font-display text-premium">
@@ -905,9 +905,11 @@ export default function DiaperStore() {
                   className="w-full !bg-rose-800 hover:!bg-rose-700 !text-white py-4 rounded-2xl font-display text-lg bg-boutique-shadow hover:bg-boutique-shadow-lg transition-all duration-300 hover-lift border-2 !border-rose-600 disabled:!bg-gray-400 disabled:!text-gray-200 disabled:!border-gray-400 disabled:cursor-not-allowed" 
                   disabled={!paymentMethod}
                   onClick={() => {
-                    if (paymentMethod) {
-                      alert(`Processando pagamento via ${paymentMethod === 'pix' ? 'PIX' : 'Cartão'}...`);
-                      // Add actual payment processing logic here
+                    if (paymentMethod === 'pix') {
+                      setShowPixModal(true);
+                    } else if (paymentMethod === 'card') {
+                      alert('Processamento de cartão em breve!');
+                      // Add card payment processing logic here
                     }
                   }}
                   style={!paymentMethod ? {} : {
@@ -923,7 +925,9 @@ export default function DiaperStore() {
                       : "Selecione a forma de pagamento"}
                 </Button>
               </div>
-            )}
+                </>
+              )}
+            </div>
           </div>
         </div>
       )}
@@ -962,6 +966,14 @@ export default function DiaperStore() {
           )}
         </Button>
       </div>
+
+      {/* Pix Modal */}
+      <PixModal
+        isOpen={showPixModal}
+        onClose={() => setShowPixModal(false)}
+        amount={cartTotal}
+        orderItems={cart}
+      />
     </div>
   )
 }
