@@ -4,74 +4,104 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  /* Sophisticated Pink Palette for Luxury Boutique */
+  --background: oklch(0.99 0.008 350);
+  --foreground: oklch(0.15 0.02 340);
+  --card: oklch(0.995 0.005 350);
+  --card-foreground: oklch(0.15 0.02 340);
+  --popover: oklch(0.995 0.005 350);
+  --popover-foreground: oklch(0.15 0.02 340);
+  
+  /* Refined Pink Primaries */
+  --primary: oklch(0.25 0.2 340);           /* Much darker rose for better contrast */
+  --primary-foreground: oklch(0.98 0.01 350); /* Light foreground */
+  --secondary: oklch(0.95 0.02 345);        /* Soft blush */
+  --secondary-foreground: oklch(0.25 0.08 340);
+  
+  /* Luxury Muted Tones */
+  --muted: oklch(0.96 0.015 348);           /* Warm pearl */
+  --muted-foreground: oklch(0.5 0.04 335);   /* Muted mauve */
+  --accent: oklch(0.92 0.04 345);           /* Champagne pink */
+  --accent-foreground: oklch(0.3 0.06 340);
+  
+  /* Sophisticated Borders & Inputs */
+  --border: oklch(0.9 0.02 345);            /* Subtle pink border */
+  --input: oklch(0.95 0.015 348);           /* Refined input background */
+  --ring: oklch(0.65 0.12 340);             /* Focus ring */
+  
+  /* Luxury Chart Colors */
+  --chart-1: oklch(0.7 0.15 340);           /* Rose */
+  --chart-2: oklch(0.75 0.12 20);           /* Warm coral */
+  --chart-3: oklch(0.6 0.18 330);           /* Deep pink */
+  --chart-4: oklch(0.8 0.1 35);            /* Peach */
+  --chart-5: oklch(0.65 0.14 310);          /* Mauve */
+  
+  /* Enhanced Radius for Sophistication */
+  --radius: 0.75rem;
+  
+  /* Sidebar Luxury Theme */
+  --sidebar: oklch(0.97 0.01 350);
+  --sidebar-foreground: oklch(0.15 0.02 340);
+  --sidebar-primary: oklch(0.45 0.15 340);
+  --sidebar-primary-foreground: oklch(0.98 0.01 350);
+  --sidebar-accent: oklch(0.92 0.04 345);
+  --sidebar-accent-foreground: oklch(0.3 0.06 340);
+  --sidebar-border: oklch(0.9 0.02 345);
+  --sidebar-ring: oklch(0.65 0.12 340);
+  
+  /* Custom Luxury Variables */
+  --luxury-gold: oklch(0.8 0.08 65);        /* Subtle gold accent */
+  --boutique-shadow: oklch(0.85 0.03 340);   /* Soft pink shadow */
+  --premium-text: oklch(0.2 0.05 335);      /* Rich text color */
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  /* Sophisticated Dark Pink Boutique Theme */
+  --background: oklch(0.12 0.02 340);
+  --foreground: oklch(0.95 0.01 350);
+  --card: oklch(0.15 0.02 340);
+  --card-foreground: oklch(0.95 0.01 350);
+  --popover: oklch(0.15 0.02 340);
+  --popover-foreground: oklch(0.95 0.01 350);
+  
+  /* Dark Luxury Primaries */
+  --primary: oklch(0.75 0.12 340);          /* Bright rose */
+  --primary-foreground: oklch(0.12 0.02 340);
+  --secondary: oklch(0.22 0.04 340);        /* Dark blush */
+  --secondary-foreground: oklch(0.9 0.02 345);
+  
+  /* Dark Muted Luxury */
+  --muted: oklch(0.18 0.03 340);            /* Dark pearl */
+  --muted-foreground: oklch(0.65 0.06 335); /* Light mauve */
+  --accent: oklch(0.25 0.05 340);           /* Dark champagne */
+  --accent-foreground: oklch(0.85 0.03 345);
+  
+  /* Dark Borders & Inputs */
+  --border: oklch(0.25 0.04 340);           /* Dark pink border */
+  --input: oklch(0.18 0.03 340);            /* Dark input */
+  --ring: oklch(0.6 0.12 340);              /* Focus ring */
+  
+  /* Dark Chart Colors */
+  --chart-1: oklch(0.65 0.15 340);          /* Dark rose */
+  --chart-2: oklch(0.7 0.12 20);            /* Dark coral */
+  --chart-3: oklch(0.55 0.18 330);          /* Deep dark pink */
+  --chart-4: oklch(0.75 0.1 35);            /* Dark peach */
+  --chart-5: oklch(0.6 0.14 310);           /* Dark mauve */
+  
+  /* Dark Sidebar */
+  --sidebar: oklch(0.15 0.02 340);
+  --sidebar-foreground: oklch(0.95 0.01 350);
+  --sidebar-primary: oklch(0.75 0.12 340);
+  --sidebar-primary-foreground: oklch(0.12 0.02 340);
+  --sidebar-accent: oklch(0.25 0.05 340);
+  --sidebar-accent-foreground: oklch(0.85 0.03 345);
+  --sidebar-border: oklch(0.25 0.04 340);
+  --sidebar-ring: oklch(0.6 0.12 340);
+  
+  /* Dark Luxury Variables */
+  --luxury-gold: oklch(0.75 0.08 65);       /* Dark gold accent */
+  --boutique-shadow: oklch(0.1 0.03 340);   /* Deep shadow */
+  --premium-text: oklch(0.85 0.02 345);     /* Light premium text */
 }
 
 @theme inline {
@@ -120,6 +150,99 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+@layer utilities {
+  /* Luxury Design Utilities */
+  .text-premium {
+    color: oklch(var(--premium-text));
+  }
+  
+  .bg-luxury-gradient {
+    background: linear-gradient(135deg, 
+      oklch(0.98 0.01 350) 0%, 
+      oklch(0.96 0.02 345) 50%, 
+      oklch(0.97 0.015 340) 100%);
+  }
+  
+  .bg-boutique-shadow {
+    box-shadow: 
+      0 1px 3px oklch(var(--boutique-shadow) / 0.12),
+      0 1px 2px oklch(var(--boutique-shadow) / 0.24);
+  }
+  
+  .bg-boutique-shadow-lg {
+    box-shadow: 
+      0 4px 6px oklch(var(--boutique-shadow) / 0.07),
+      0 10px 15px oklch(var(--boutique-shadow) / 0.1),
+      0 0 0 1px oklch(var(--border) / 0.05);
+  }
+  
+  .bg-boutique-shadow-xl {
+    box-shadow: 
+      0 8px 25px oklch(var(--boutique-shadow) / 0.15),
+      0 4px 10px oklch(var(--boutique-shadow) / 0.1),
+      0 0 0 1px oklch(var(--border) / 0.05);
+  }
+  
+  .text-luxury-gradient {
+    background: linear-gradient(135deg, 
+      oklch(0.45 0.15 340) 0%, 
+      oklch(0.6 0.12 335) 50%, 
+      oklch(0.7 0.08 65) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .border-luxury {
+    border-color: oklch(var(--border));
+  }
+  
+  .ring-luxury {
+    --tw-ring-color: oklch(var(--ring) / 0.3);
+  }
+  
+  .backdrop-luxury {
+    backdrop-filter: blur(12px) saturate(1.5);
+    -webkit-backdrop-filter: blur(12px) saturate(1.5);
+  }
+  
+  /* Premium hover states */
+  .hover-lift {
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+                box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-2px);
+  }
+  
+  /* Sophisticated animations */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  /* Typography enhancements */
+  .font-display {
+    font-family: var(--font-sans);
+    font-weight: 300;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+  
+  .font-body-luxury {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
   }
 }
