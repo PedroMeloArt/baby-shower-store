@@ -199,7 +199,7 @@ const ProductCard = ({
     <Card className="group bg-card border border-primary/10 hover:border-primary/20 hover-lift bg-boutique-shadow hover:bg-boutique-shadow-lg transition-all duration-300 overflow-hidden backdrop-luxury h-full flex flex-col">
       <div className="aspect-square bg-gradient-to-br from-accent/30 via-primary/5 to-accent/20 relative flex items-center justify-center">
         {/* Elegant background pattern */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,oklch(0.96_0.02_345)_100%)] opacity-30"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,hsl(345,20%,96%)_100%)] opacity-30"></div>
         
         {/* Product image placeholder with luxury styling */}
         <div className="relative">
@@ -389,9 +389,9 @@ export default function DiaperStore() {
       <header className="relative bg-luxury-gradient min-h-screen px-6 overflow-hidden flex items-center">
         {/* Hero Section - Background Pattern */}
         <div className="absolute inset-0 opacity-30">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,oklch(0.94_0.04_345)_0%,transparent_50%)]"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,oklch(0.92_0.06_340)_0%,transparent_50%)]"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_40%_80%,oklch(0.95_0.03_350)_0%,transparent_50%)]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,hsl(345,40%,94%)_0%,transparent_50%)]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,hsl(340,60%,92%)_0%,transparent_50%)]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_40%_80%,hsl(350,30%,95%)_0%,transparent_50%)]"></div>
         </div>
 
         {/* Hero Section - Floating Decorative Elements */}
@@ -428,7 +428,7 @@ export default function DiaperStore() {
             <div className="relative">
               <div className="aspect-square bg-gradient-to-br from-primary/5 via-accent/10 to-primary/8 rounded-[2rem] flex items-center justify-center bg-boutique-shadow-xl border border-primary/10 overflow-hidden">
                 {/* Elegant overlay pattern */}
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,oklch(0.96_0.02_345)_70%)] opacity-50"></div>
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,hsl(345,20%,96%)_70%)] opacity-50"></div>
                 
                 {/* Main image with luxury styling */}
                 <div className="relative w-full h-full flex items-center justify-center">
