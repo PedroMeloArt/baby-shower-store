@@ -433,7 +433,7 @@ export default function DiaperStore() {
                 {/* Main image with luxury styling */}
                 <div className="relative w-full h-full flex items-center justify-center">
                   <Image
-                    src="/Sophia-Gemini.png"
+                    src="/baby-shower-store/Sophia-Gemini.png"
                     alt="Sophia - Beautiful baby portrait"
                     width={400}
                     height={400}
