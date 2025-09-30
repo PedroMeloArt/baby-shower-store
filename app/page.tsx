@@ -437,7 +437,6 @@ export default function DiaperStore() {
                     alt="Sophia - Beautiful baby portrait"
                     width={400}
                     height={400}
-                    priority
                     className="object-cover rounded-2xl shadow-2xl animate-float"
                     style={{
                       filter: 'drop-shadow(0 25px 50px rgba(0,0,0,0.15))',
