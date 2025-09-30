@@ -286,6 +286,7 @@ export default function DiaperStore() {
   const [isCartOpen, setIsCartOpen] = useState(false)
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>(null)
   const [showPixModal, setShowPixModal] = useState(false)
+  const [isProcessingCard, setIsProcessingCard] = useState(false)
 
 
   const addToCart = (product: Product) => {
@@ -902,13 +903,45 @@ export default function DiaperStore() {
 
                 <Button 
                   className="w-full !bg-rose-800 hover:!bg-rose-700 !text-white py-4 rounded-2xl font-display text-lg bg-boutique-shadow hover:bg-boutique-shadow-lg transition-all duration-300 hover-lift border-2 !border-rose-600 disabled:!bg-gray-400 disabled:!text-gray-200 disabled:!border-gray-400 disabled:cursor-not-allowed" 
-                  disabled={!paymentMethod}
-                  onClick={() => {
+                  disabled={!paymentMethod || isProcessingCard}
+                  onClick={async () => {
                     if (paymentMethod === 'pix') {
                       setShowPixModal(true);
                     } else if (paymentMethod === 'card') {
-                      alert('Processamento de cartão em breve!');
-                      // Add card payment processing logic here
+                      setIsProcessingCard(true);
+                      try {
+                        // Call Vercel serverless function (deployed separately)
+                        // Replace with your actual Vercel deployment URL after deploying
+                        const VERCEL_API_URL = 'https://your-project.vercel.app/api/create-checkout';
+                        
+                        const response = await fetch(VERCEL_API_URL, {
+                          method: 'POST',
+                          headers: {
+                            'Content-Type': 'application/json',
+                          },
+                          body: JSON.stringify({
+                            amount: cartTotal,
+                            items: cart,
+                            customerName: '', // Optional: add name input field
+                            customerEmail: '', // Optional: add email input field
+                          }),
+                        });
+
+                        if (!response.ok) {
+                          throw new Error('Failed to create checkout session');
+                        }
+
+                        const data = await response.json();
+                        
+                        // Redirect to Stripe Checkout with preset amount
+                        if (data.url) {
+                          window.location.href = data.url;
+                        }
+                      } catch (error) {
+                        console.error('Stripe checkout error:', error);
+                        alert('Erro ao processar pagamento. Tente novamente.');
+                        setIsProcessingCard(false);
+                      }
                     }
                   }}
                   style={!paymentMethod ? {} : {
@@ -917,11 +950,13 @@ export default function DiaperStore() {
                     borderColor: '#9f1239'
                   }}
                 >
-                  {paymentMethod === "pix"
-                    ? "Gerar PIX"
-                    : paymentMethod === "card"
-                      ? "Finalizar Compra"
-                      : "Selecione a forma de pagamento"}
+                  {isProcessingCard 
+                    ? "Processando..."
+                    : paymentMethod === "pix"
+                      ? "Gerar PIX"
+                      : paymentMethod === "card"
+                        ? "Finalizar Compra"
+                        : "Selecione a forma de pagamento"}
                 </Button>
               </div>
                 </>
