@@ -294,6 +294,9 @@ Todos os outros 42 componentes UI não utilizados foram removidos para manter o 
 6. **Update AI Baby Picture**  
    Substituir a imagem atual de bebê gerada por IA por uma nova.
 
+7. **Add Successful Payment Modal/Notification**  
+   Implementar um modal ou notificação elegante que apareça após o pagamento ser processado com sucesso, confirmando a compra e exibindo os detalhes da transação.
+
 ## 🤝 Contribuição
 
 1. Fork o projeto
