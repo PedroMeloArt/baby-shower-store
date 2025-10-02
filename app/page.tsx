@@ -287,6 +287,8 @@ export default function DiaperStore() {
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>(null)
   const [showPixModal, setShowPixModal] = useState(false)
   const [isProcessingCard, setIsProcessingCard] = useState(false)
+  const [customerName, setCustomerName] = useState("")
+  const [customerMessage, setCustomerMessage] = useState("")
 
 
   const addToCart = (product: Product) => {
@@ -837,6 +839,37 @@ export default function DiaperStore() {
                 </div>
 
                 <div className="mb-6">
+                  <h3 className="text-lg font-display text-premium mb-4">Seus Dados</h3>
+                  <div className="space-y-3">
+                    <div>
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
+                        Nome <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        value={customerName}
+                        onChange={(e) => setCustomerName(e.target.value)}
+                        placeholder="Seu nome completo"
+                        className="w-full px-4 py-3 bg-card border border-primary/20 rounded-xl text-premium focus:outline-none focus:ring-2 ring-luxury focus:border-primary/40 transition-all duration-200"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
+                        Mensagem para os pais (opcional)
+                      </label>
+                      <textarea
+                        value={customerMessage}
+                        onChange={(e) => setCustomerMessage(e.target.value)}
+                        placeholder="Deixe uma mensagem carinhosa para a família..."
+                        rows={3}
+                        className="w-full px-4 py-3 bg-card border border-primary/20 rounded-xl text-premium focus:outline-none focus:ring-2 ring-luxury focus:border-primary/40 transition-all duration-200 resize-none"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mb-6">
                   <h3 className="text-lg font-display text-premium mb-4">Forma de Pagamento</h3>
                   <div className="grid grid-cols-2 gap-4">
                     <Button
@@ -903,15 +936,20 @@ export default function DiaperStore() {
 
                 <Button 
                   className="w-full !bg-rose-800 hover:!bg-rose-700 !text-white py-4 rounded-2xl font-display text-lg bg-boutique-shadow hover:bg-boutique-shadow-lg transition-all duration-300 hover-lift border-2 !border-rose-600 disabled:!bg-gray-400 disabled:!text-gray-200 disabled:!border-gray-400 disabled:cursor-not-allowed" 
-                  disabled={!paymentMethod || isProcessingCard}
+                  disabled={!paymentMethod || isProcessingCard || !customerName.trim()}
                   onClick={async () => {
+                    if (!customerName.trim()) {
+                      alert('Por favor, preencha seu nome.');
+                      return;
+                    }
+
                     if (paymentMethod === 'pix') {
                       setShowPixModal(true);
                     } else if (paymentMethod === 'card') {
                       setIsProcessingCard(true);
                       try {
-                        // Call Vercel serverless function (deployed separately)
-                        const VERCEL_API_URL = 'https://baby-shower-stripe.vercel.app/api/create-checkout';
+                        // Call new checkout endpoint with name and message
+                        const VERCEL_API_URL = 'https://baby-shower-stripe.vercel.app/api/checkout';
                         
                         const response = await fetch(VERCEL_API_URL, {
                           method: 'POST',
@@ -919,10 +957,19 @@ export default function DiaperStore() {
                             'Content-Type': 'application/json',
                           },
                           body: JSON.stringify({
-                            amount: cartTotal,
-                            items: cart,
-                            customerName: '', // Optional: add name input field
-                            customerEmail: '', // Optional: add email input field
+                            items: cart.map(item => ({
+                              price_data: {
+                                currency: 'brl',
+                                product_data: {
+                                  name: `${item.brand} - Tamanho ${item.size}`,
+                                  description: item.description,
+                                },
+                                unit_amount: Math.round(parseFloat(item.price.replace('R$ ', '').replace(',', '.')) * 100),
+                              },
+                              quantity: item.quantity,
+                            })),
+                            name: customerName.trim(),
+                            message: customerMessage.trim(),
                           }),
                         });
 
@@ -932,7 +979,7 @@ export default function DiaperStore() {
 
                         const data = await response.json();
                         
-                        // Redirect to Stripe Checkout with preset amount
+                        // Redirect to Stripe Checkout
                         if (data.url) {
                           window.location.href = data.url;
                         }
@@ -943,7 +990,7 @@ export default function DiaperStore() {
                       }
                     }
                   }}
-                  style={!paymentMethod ? {} : {
+                  style={!paymentMethod || !customerName.trim() ? {} : {
                     backgroundColor: '#9f1239',
                     color: '#ffffff',
                     borderColor: '#9f1239'
