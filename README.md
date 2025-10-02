@@ -89,7 +89,8 @@ boutique-sophia/
 ├── lib/
 │   └── utils.ts             # Utilitários (cn para merge de classes)
 ├── public/
-│   └── Sophia-Gemini.png    # Imagem da hero section
+│   └── Sophia_1.png         # Imagem da hero section (versão anterior)
+│   └── Sophia_2.png         # Imagem da hero section (versão atual)
 ├── components.json          # Configuração shadcn/ui
 ├── package.json             # Dependências e scripts
 ├── tsconfig.json            # Configuração TypeScript
