@@ -911,8 +911,7 @@ export default function DiaperStore() {
                       setIsProcessingCard(true);
                       try {
                         // Call Vercel serverless function (deployed separately)
-                        // Replace with your actual Vercel deployment URL after deploying
-                        const VERCEL_API_URL = 'https://your-project.vercel.app/api/create-checkout';
+                        const VERCEL_API_URL = 'https://baby-shower-stripe.vercel.app/api/create-checkout';
                         
                         const response = await fetch(VERCEL_API_URL, {
                           method: 'POST',
