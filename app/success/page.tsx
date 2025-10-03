@@ -182,15 +182,11 @@ export default function SuccessPage() {
           <ul className="space-y-3 text-muted-foreground">
             <li className="flex items-start gap-3">
               <span className="text-primary">✓</span>
-              <span>Você receberá um email de confirmação com os detalhes da compra</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="text-primary">✓</span>
               <span>Os pais da Sophia receberão sua mensagem e contribuição</span>
             </li>
             <li className="flex items-start gap-3">
               <span className="text-primary">✓</span>
-              <span>As fraldas serão compradas com sua contribuição antes do evento</span>
+              <span>As fraldas serão compradas com sua contribuição</span>
             </li>
             <li className="flex items-start gap-3">
               <span className="text-primary">✓</span>
@@ -200,7 +196,7 @@ export default function SuccessPage() {
         </div>
 
         {/* Actions */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex justify-center">
           <Button
             onClick={() => router.push("/")}
             className="!bg-rose-800 hover:!bg-rose-700 !text-white px-8 py-6 text-lg rounded-2xl"
@@ -208,13 +204,6 @@ export default function SuccessPage() {
           >
             <ArrowLeft className="w-5 h-5 mr-2" />
             Voltar para a Loja
-          </Button>
-          <Button
-            onClick={() => window.print()}
-            variant="outline"
-            className="px-8 py-6 text-lg rounded-2xl border-2 border-primary/20 hover:border-primary/30"
-          >
-            🖨️ Imprimir Recibo
           </Button>
         </div>
       </div>
