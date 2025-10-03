@@ -1053,6 +1053,18 @@ export default function DiaperStore() {
         onClose={() => setShowPixModal(false)}
         amount={cartTotal}
         orderItems={cart}
+        customerName={customerName}
+        customerMessage={customerMessage}
+        onPaymentConfirmed={(sessionId) => {
+          setShowPixModal(false)
+          // Clear cart and form
+          setCart([])
+          setCustomerName('')
+          setCustomerMessage('')
+          setPaymentMethod(null)
+          // Redirect to success page
+          window.location.href = `/success?session_id=${sessionId}`
+        }}
       />
     </div>
   )
