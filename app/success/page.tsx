@@ -40,7 +40,6 @@ export default function SuccessPage() {
           `https://baby-shower-stripe.vercel.app/api/confirm?session_id=${sessionId}`,
           {
             method: 'GET',
-            credentials: 'include',
           }
         )
 
