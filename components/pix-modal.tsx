@@ -13,16 +13,25 @@ interface PixModalProps {
   orderItems: Array<{
     id: number
     brand: string
+    size: string
+    count: string | number
+    price: string
     quantity: number
+    description: string
   }>
+  customerName: string
+  customerMessage: string
+  onPaymentConfirmed: (sessionId: string) => void
 }
 
-export function PixModal({ isOpen, onClose, amount, orderItems }: PixModalProps) {
+export function PixModal({ isOpen, onClose, amount, orderItems, customerName, customerMessage, onPaymentConfirmed }: PixModalProps) {
   const [pixCode, setPixCode] = useState<string | null>(null)
   const [isGenerating, setIsGenerating] = useState(true)
   const [copySuccess, setCopySuccess] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [txid, setTxid] = useState<string>("")
+  const [isConfirming, setIsConfirming] = useState(false)
+  const [confirmationError, setConfirmationError] = useState<string | null>(null)
 
   useEffect(() => {
     if (isOpen) {
@@ -101,6 +110,49 @@ export function PixModal({ isOpen, onClose, amount, orderItems }: PixModalProps)
         console.error("Failed to copy:", err)
       }
       document.body.removeChild(textArea)
+    }
+  }
+
+  const confirmPixPayment = async () => {
+    if (!pixCode || !customerName.trim()) return
+    
+    setIsConfirming(true)
+    setConfirmationError(null)
+
+    try {
+      const response = await fetch('https://baby-shower-stripe.vercel.app/api/pix/create', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: customerName.trim(),
+          message: customerMessage.trim(),
+          items: orderItems.map(item => ({
+            brand: item.brand,
+            size: item.size,
+            count: item.count,
+            price: item.price,
+            quantity: item.quantity,
+            description: item.description,
+          })),
+          amount: amount,
+          txid: txid,
+          pix_code: pixCode
+        }),
+      })
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}))
+        throw new Error(errorData.error || 'Failed to confirm payment')
+      }
+
+      const data = await response.json()
+      onPaymentConfirmed(data.session_id)
+    } catch (error) {
+      console.error('PIX confirmation error:', error)
+      setConfirmationError(error instanceof Error ? error.message : 'Erro ao confirmar pagamento. Tente novamente.')
+      setIsConfirming(false)
     }
   }
 
@@ -267,17 +319,48 @@ export function PixModal({ isOpen, onClose, amount, orderItems }: PixModalProps)
 
         {/* Footer */}
         {pixCode && !isGenerating && !error && (
-          <div className="border-t border-primary/10 p-6 bg-accent/5">
-            <Button
-              onClick={onClose}
-              className="w-full !bg-rose-800 hover:!bg-rose-700 !text-white py-3 rounded-2xl font-display text-base transition-all duration-300 hover-lift"
-              style={{
-                backgroundColor: '#9f1239',
-                color: '#ffffff',
-              }}
-            >
-              Fechar
-            </Button>
+          <div className="border-t border-primary/10 p-6 bg-accent/5 space-y-4">
+            {/* Error Message */}
+            {confirmationError && (
+              <div className="bg-red-50 border border-red-200 rounded-2xl p-4 flex items-center gap-3">
+                <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0" />
+                <p className="text-sm text-red-800 font-medium">{confirmationError}</p>
+              </div>
+            )}
+            
+            {/* Action Buttons */}
+            <div className="flex gap-3">
+              <Button
+                onClick={confirmPixPayment}
+                disabled={isConfirming || !customerName.trim()}
+                className="flex-1 !bg-green-600 hover:!bg-green-700 !text-white py-3 rounded-2xl font-display text-base transition-all duration-300 hover-lift disabled:!bg-gray-400 disabled:cursor-not-allowed"
+                style={isConfirming || !customerName.trim() ? {} : {
+                  backgroundColor: '#16a34a',
+                  color: '#ffffff',
+                }}
+              >
+                {isConfirming ? (
+                  <>
+                    <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                    Confirmando...
+                  </>
+                ) : (
+                  <>
+                    <Check className="w-4 h-4 mr-2" />
+                    Já paguei
+                  </>
+                )}
+              </Button>
+              
+              <Button
+                onClick={onClose}
+                disabled={isConfirming}
+                variant="outline"
+                className="px-8 py-3 rounded-2xl border-2 border-primary/20 hover:border-primary/30 font-display text-base disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Fechar
+              </Button>
+            </div>
           </div>
         )}
       </div>
