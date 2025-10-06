@@ -14,6 +14,9 @@ export const metadata: Metadata = {
       { url: '/baby-shower-store/favicon.ico', sizes: 'any' }
     ],
   },
+  other: {
+    'Content-Security-Policy': "img-src 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com; connect-src 'self' https://baby-shower-stripe.vercel.app;",
+  },
 }
 
 export default function RootLayout({
