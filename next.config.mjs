@@ -4,8 +4,7 @@ const nextConfig = {
   ...(process.env.NODE_ENV === 'production' && {
     output: 'export',
     trailingSlash: true,
-    basePath: '/baby-shower-store',
-    assetPrefix: '/baby-shower-store/',
+    // basePath and assetPrefix removed for custom domain
   }),
   eslint: {
     ignoreDuringBuilds: true,

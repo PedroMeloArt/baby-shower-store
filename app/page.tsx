@@ -29,22 +29,13 @@ type CartItem = Product & {
 
 type PaymentMethod = "pix" | "card" | null
 
-// Helper function to get asset path with basePath for production
+// Helper function to get asset path - now serves from root for custom domain
 const getAssetPath = (path: string) => {
-  // In production (static export), prepend the basePath
-  const basePath = process.env.NODE_ENV === 'production' ? '/baby-shower-store' : ''
-  return `${basePath}${path}`
+  return path
 }
 
-// Helper function to get route path with basePath (works in browser)
+// Helper function to get route path - now serves from root for custom domain
 const getRoutePath = (path: string) => {
-  // Check if we're in the browser and if the current location includes the basePath
-  if (typeof window !== 'undefined') {
-    const currentPath = window.location.pathname
-    if (currentPath.includes('/baby-shower-store')) {
-      return `/baby-shower-store${path}`
-    }
-  }
   return path
 }
 
@@ -1489,7 +1480,6 @@ export default function DiaperStore() {
                         } else if (paymentMethod === 'card') {
                           setIsProcessingCard(true);
                           try {
-                            // Call new checkout endpoint with name and message
                             const VERCEL_API_URL = 'https://baby-shower-stripe.vercel.app/api/checkout';
 
                             const response = await fetch(VERCEL_API_URL, {
@@ -1514,13 +1504,13 @@ export default function DiaperStore() {
                               }),
                             });
 
+                            const data = await response.json();
+                            
                             if (!response.ok) {
-                              throw new Error('Failed to create checkout session');
+                              console.error('API Error:', data);
+                              throw new Error(data.error || 'Failed to create checkout session');
                             }
 
-                            const data = await response.json();
-
-                            // Redirect to Stripe Checkout
                             if (data.url) {
                               window.location.href = data.url;
                             }
