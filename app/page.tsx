@@ -18,6 +18,7 @@ type Product = {
   count: string | number
   price: string
   category: string
+  subcategory?: string
   description: string
   image: string
 }
@@ -322,9 +323,358 @@ const products: Product[] = [
     description: "Fralda MamyPoko tamanho G, pacote com 60 unidades",
     image: "/images/products/MamyPoko_G_60.webp",
   },
+    // Mimos
+
+  // ========================================
+  // BOOMA - MIMOS (CUIDADOS)
+  // ========================================
+  {
+    id: 200,
+    brand: "Kit Duplinha",
+    size: "150g",
+    count: "2 pomadas",
+    price: "R$ 279,00",
+    category: "Mimos",
+    subcategory: "Cuidados",
+    description: "O Kit Duplinha é a solução perfeita! Protege seu bebê de assaduras com sua fórmula 100% natural e segura. Além disso, sua ação eficaz traz proteção e alívio. É a mágica da natureza! Inclui: 1 pomada multifuncional (150g), 1 pomada antiassaduras (150g)",
+    image: "/images/products/Booma_Kit-Pomadas_150g.jpeg",
+  },
+  {
+    id: 201,
+    brand: "Kit Viagem",
+    size: "100ml",
+    count: "2 bisnagas",
+    price: "R$ 229,00",
+    category: "Mimos",
+    subcategory: "Cuidados",
+    description: "Leve o Kit Duplinha Viagem e proteja o seu bebê com segurança e 100% natural! Não tem nada melhor que curtir o momento sem preocupações, certo? Tchau, assaduras! Inclui: 1 bisnaga Multifuncional (100ml) + 1 bisnaga Antiassaduras (100ml)",
+    image: "/images/products/Booma_Kit-Pomadas_150g.jpeg",
+  },
+
+  // ========================================
+  // BABY-STYLE - MIMOS (EQUIPAMENTOS)
+  // ========================================
+  {
+    id: 202,
+    brand: "Cadeira de Balanço para Bebê",
+    size: "Único",
+    count: "1 unidade",
+    price: "R$ 577,00",
+    category: "Mimos",
+    subcategory: "Equipamentos",
+    description: "A Cadeira de Balanço para Bebê é indispensável para pais que desejam mais conforto e tranquilidade na rotina com seu neném. Com design ergonômico e inteligente, oferece uma experiência relaxante e segura, tanto para os pequenos quanto para os pais. SEGURANÇA E CONFORTO EM PRIMEIRO LUGAR: A cadeira de balanço automática possui cinto de segurança ajustável, bases antiderrapantes e estrutura robusta. O assento acolchoado e ergonômico proporciona o suporte ideal, transformando cada uso em uma experiência segura e confortável para o bebê.",
+    image: "/images/products/Baby-Style_Cadeira-Automatica.jpeg",
+  },
+
+  // ========================================
+  // MIMOS (BRINQUEDOS)
+  // ========================================
+  {
+    id: 203,
+    brand: "Brinquedos de Dentição de Silicone",
+    size: "Único",
+    count: "1 unidade",
+    price: "R$ 29,00",
+    category: "Mimos",
+    subcategory: "Brinquedos",
+    description: "Brinquedos de Mastigação para Bebês, Presente para Recém-Nascidos",
+    image: "/images/products/No-Brand_Mordedor_Tipo1.jpeg",
+  },
+  {
+    id: 204,
+    brand: "16 Peças/Conjunto Brinquedos Educacionais Montessori",
+    size: "Único",
+    count: "16 peças",
+    price: "R$ 52,00",
+    category: "Mimos",
+    subcategory: "Brinquedos",
+    description: "Caixa Colorida Multifuncional de Reconhecimento da Forma de Animal em Desenho Animado, Brinquedo de Desenho Simulado",
+    image: "/images/products/No-Brand_Brinquedo_Tipo1.jpeg",
+  },
+  {
+    id: 205,
+    brand: "Kit com 4 peças - Livro de Tecido para Bebê",
+    size: "Único",
+    count: "4 peças",
+    price: "R$ 62,00",
+    category: "Mimos",
+    subcategory: "Brinquedos",
+    description: "Educativo, Sensorial, Lavável, Seguro e Macio para Recém-Nascidos",
+    image: "/images/products/No-Brand_Brinquedo_Tipo2.jpeg",
+  },
+  {
+    id: 206,
+    brand: "Brinquedo de Dentição de Silicone Estegossauro",
+    size: "Único",
+    count: "1 unidade",
+    price: "R$ 28,76",
+    category: "Mimos",
+    subcategory: "Brinquedos",
+    description: "Brinquedo de Argola de Madeira com Dinossauro Fofo, Design de Dinossauro em Estilo Cartoon Fácil de Segurar, Acessório para Bebês e Crianças Pequenas, Presente para Dentição dos Mais Novos",
+    image: "/images/products/No-Brand_Mordedor_Tipo2.jpeg",
+  },
+  {
+    id: 207,
+    brand: "Brinquedo de Pelúcia Casa de Desenho Animado",
+    size: "Único",
+    count: "1 unidade",
+    price: "R$ 99,00",
+    category: "Mimos",
+    subcategory: "Brinquedos",
+    description: "Brinquedo Visual e Tátil para Bebês, Brinquedo Educativo de Reconhecimento de Cores e Cognição Animal, Brinquedo Acalmante para Bebês, Ajuda a Exercitar o Movimento das Mãos do Bebê, Ótimo Presente de Natal, Halloween, Aniversário",
+    image: "/images/products/No-Brand_Brinquedo_Tipo3.jpeg",
+  },
+  {
+    id: 208,
+    brand: "1 Conjunto com 8 Peças Brinquedos de Praia de Silicone",
+    size: "Único",
+    count: "8 peças",
+    price: "R$ 115,00",
+    category: "Mimos",
+    subcategory: "Brinquedos",
+    description: "Conjunto de Praia Amigável de Viagem, Balde de Silicone, Pá, 6 Moldes de Areia, Bolsa de Praia, Brinquedos de Areia para Crianças Pequenas, Presente de Verão ao Ar Livre para Crianças, Brinquedos de Praia, Praia, Camping, Rosa, Jardinagem Infantil, Brinquedos para Praia",
+    image: "/images/products/No-Brand_Brinquedo_Tipo4.jpeg",
+  },
+  {
+    id: 209,
+    brand: "1 Peça Bóia Inflável de Natação Infantil com Dossel",
+    size: "Único",
+    count: "1 unidade",
+    price: "R$ 52,59",
+    category: "Mimos",
+    subcategory: "Brinquedos",
+    description: "Anel de Assento Listrado, Flutuador de Piscina para Bebês com Alça, Design Anti-Tombamento",
+    image: "/images/products/No-Brand_Brinquedo_Tipo5.jpeg",
+  },
+
+  // ========================================
+  // COZY-PIXIES - MIMOS (ALIMENTAÇÃO)
+  // ========================================
+  {
+    id: 210,
+    brand: "Cozy Pixies 2 peças Babadores de Silicone",
+    size: "Único",
+    count: "2 peças",
+    price: "R$ 34,99",
+    category: "Mimos",
+    subcategory: "Alimentação",
+    description: "À Prova D'água para Bebê com Design de Animal Cartonado, Adequados para Alimentação",
+    image: "/images/products/Cozy-Pixies_Kit-Babadores_2.jpeg",
+  },
+  {
+    id: 211,
+    brand: "Cozy Pixies Conjunto De Alimentação Do Bebê De 5 Peças",
+    size: "Único",
+    count: "5 peças",
+    price: "R$ 80,99",
+    category: "Mimos",
+    subcategory: "Alimentação",
+    description: "Com Tigela De Sucção De Silicone, Babador, Tigela De Treinamento, Garfo E Colher",
+    image: "/images/products/Cozy-Pixies_Kit-Alimentacao_1.jpeg",
+  },
+  {
+    id: 212,
+    brand: "5 Potes Vidro Armazenar Leite Materno, Papinha",
+    size: "Único",
+    count: "5 potes",
+    price: "R$ 45,00",
+    category: "Mimos",
+    subcategory: "Alimentação",
+    description: "Potes de vidro para armazenar leite materno e papinhas",
+    image: "/images/products/Nenos_Potes-Vidro_5.jpeg",
+  },
+
+  // ========================================
+  // COZY-PIXIES - MIMOS (ACESSÓRIOS)
+  // ========================================
+  {
+    id: 213,
+    brand: "Cozy Pixies Novo Trocador de Bebê Portátil Impermeável",
+    size: "Único",
+    count: "1 unidade",
+    price: "R$ 63,99",
+    category: "Mimos",
+    subcategory: "Acessórios",
+    description: "Trocador Multiuso para Uso ao Ar Livre, Acessório Dobrável para Bolsa de Fraldas",
+    image: "/images/products/Cozy-Pixies_Trocador-Portatil_1.jpeg",
+  },
+  {
+    id: 214,
+    brand: "Cozy Pixies Bolsa Maternal de Urso na Cor Cáqui",
+    size: "Único",
+    count: "1 unidade",
+    price: "R$ 123,24",
+    category: "Mimos",
+    subcategory: "Acessórios",
+    description: "Conveniente para Carregar ao Ar Livre, Grande Capacidade com Camada de Isolamento, Pode Armazenar Garrafas, Bolsa Multifuncional para Fraldas",
+    image: "/images/products/Cozy-Pixies_Mochila_1.jpeg",
+  },
+  {
+    id: 215,
+    brand: "Cozy Pixies 1 Peça Capa de Carrinho de Bebê com Laço Bordado",
+    size: "Único",
+    count: "1 unidade",
+    price: "R$ 57,99",
+    category: "Mimos",
+    subcategory: "Acessórios",
+    description: "Proteção Solar Respirável, a Prova de Poeira e Vento, a Prova de Insetos, para Uso Externo na Primavera/Verão",
+    image: "/images/products/Cozy-Pixies_Capa-Carrinho_1.jpeg",
+  },
+  {
+    id: 216,
+    brand: "Cozy Pixies 1 Peça Saco de Dormir para Bebê com Aplicação de Coelho",
+    size: "Único",
+    count: "1 unidade",
+    price: "R$ 40,39",
+    category: "Mimos",
+    subcategory: "Acessórios",
+    description: "Macio e Amigável para a Pele, Camada Única",
+    image: "/images/products/Cozy-Pixies_Saco-Dormir_1.jpeg",
+  },
+  {
+    id: 217,
+    brand: "Cozy Pixies 1 Peça Cobertor Aconchegante para Bebê com Forro Térmico",
+    size: "Único",
+    count: "1 unidade",
+    price: "R$ 52,49",
+    category: "Mimos",
+    subcategory: "Acessórios",
+    description: "Camada Dupla e Aplicação de Urso",
+    image: "/images/products/Cozy-Pixies_Saco-Dormir_2.jpeg",
+  },
+
+  // ========================================
+  // COZY-PIXIES - MIMOS (ROUPAS)
+  // ========================================
+  {
+    id: 218,
+    brand: "Cozy Pixies Conjunto de 4 peças Morango Fofo para Recém-Nascido",
+    size: "RN",
+    count: "4 peças",
+    price: "R$ 80,59",
+    category: "Mimos",
+    subcategory: "Roupas",
+    description: "A Cor Rosa Suave o Torna Mais Adorável e Vibrante",
+    image: "/images/products/Cozy-Pixies_Kit-Roupa_1.jpeg",
+  },
+  {
+    id: 219,
+    brand: "Cozy Pixies Tênis Para Bebê Menina",
+    size: "Único",
+    count: "1 par",
+    price: "R$ 71,99",
+    category: "Mimos",
+    subcategory: "Roupas",
+    description: "Super Macio Com Estampa De Coração, Biqueira Anti-colisão E Sola Antiderrapante",
+    image: "/images/products/Cozy-Pixies_Tenis_1.jpeg",
+  },
+  {
+    id: 220,
+    brand: "Cozy Pixies 1 Par de Mocassins Planos Fofos e Confortáveis",
+    size: "Único",
+    count: "1 par",
+    price: "R$ 75,59",
+    category: "Mimos",
+    subcategory: "Roupas",
+    description: "Adequado para Uso Diário (Padrão Aleatório)",
+    image: "/images/products/Cozy-Pixies_Tenis_2.jpeg",
+  },
+
+  // ========================================
+  // NATURA - MIMOS (CUIDADOS)
+  // ========================================
+  {
+    id: 221,
+    brand: "Kit Mamãe e Bebê Shampoo, Condicionador, Sabonete em Barra e Hidratante Natura",
+    size: "200ml",
+    count: "4 produtos",
+    price: "R$ 202,00",
+    category: "Mimos",
+    subcategory: "Cuidados",
+    description: "Kit completo de cuidados para mamãe e bebê",
+    image: "/images/products/Natura_Kit-Limpeza_200ml.jpeg",
+  },
+  {
+    id: 222,
+    brand: "Kit Mamãe e Bebê Shampoo, Condicionador, Sabonete Líquido e Hidratante",
+    size: "200ml",
+    count: "4 produtos",
+    price: "R$ 203,80",
+    category: "Mimos",
+    subcategory: "Cuidados",
+    description: "Kit completo de cuidados para mamãe e bebê com sabonete líquido",
+    image: "/images/products/Natura_Kit-Limpeza_200ml_2.jpeg",
+  },
+
+  // ========================================
+  // JOHNSON'S - MIMOS (CUIDADOS)
+  // ========================================
+  {
+    id: 223,
+    brand: "Hidratante Nutritivo Derma Protect JOHNSON'S® Baby",
+    size: "200ml",
+    count: "1 unidade",
+    price: "R$ 63,00",
+    category: "Mimos",
+    subcategory: "Cuidados",
+    description: "Hidratante nutritivo para proteção da pele do bebê",
+    image: "/images/products/Johnsons-Baby_Hidratante_200ml.jpeg",
+  },
+
+  // ========================================
+  // BEPANTOL - MIMOS (CUIDADOS)
+  // ========================================
+  {
+    id: 224,
+    brand: "Bepantol Baby Leve 4 Pague 3 Kit 192 Lenços Umedecidos",
+    size: "Único",
+    count: "192 lenços",
+    price: "R$ 45,90",
+    category: "Mimos",
+    subcategory: "Cuidados",
+    description: "Kit promocional com 192 lenços umedecidos Bepantol Baby",
+    image: "/images/products/Bepantol-Baby_Kit-Lencos_4.jpeg",
+  },
+
+  // ========================================
+  // BLUMEE - MIMOS (CUIDADOS)
+  // ========================================
+  {
+    id: 225,
+    brand: "Espuma de banho cabeça aos pés desde o nascimento",
+    size: "210ml",
+    count: "1 unidade",
+    price: "R$ 69,90",
+    category: "Mimos",
+    subcategory: "Cuidados",
+    description: "Espuma de banho suave para uso desde o nascimento",
+    image: "/images/products/Blumee_Esmupa-Banho_210ml.jpeg",
+  },
+  {
+    id: 226,
+    brand: "Água de limpeza desde o nascimento",
+    size: "300ml",
+    count: "1 unidade",
+    price: "R$ 58,90",
+    category: "Mimos",
+    subcategory: "Cuidados",
+    description: "Água de limpeza suave para uso desde o nascimento",
+    image: "/images/products/Blumee_Agua-Limpeza_300ml.jpeg",
+  },
+  {
+    id: 227,
+    brand: "Kit Recém Nascido (espuma da cabeça aos pés e água de limpeza)",
+    size: "Kit",
+    count: "2 produtos",
+    price: "R$ 115,90",
+    category: "Mimos",
+    subcategory: "Cuidados",
+    description: "Kit completo para recém-nascidos com espuma de banho e água de limpeza",
+    image: "/images/products/Blumee_Kit-Limpeza_2.jpeg",
+  },
 ]
 
-const brandTabs = ["Todas", "Pampers", "Huggies", "MamyPoko", "Kits"]
+const brandTabs = ["Todas", "Babysec", "Pampers", "MamyPoko", "Mimos"]
 const sortOptions = [
   { value: "name-asc", label: "Nome A-Z" },
   { value: "name-desc", label: "Nome Z-A" },
@@ -487,13 +837,14 @@ export default function DiaperStore() {
       activeFilter === "Todas"
         ? products
         : products.filter((product) => {
-          if (activeFilter === "Kits") {
-            return product.category === "Kits"
+          if (activeFilter === "Mimos") {
+            return product.category === "Mimos"
           }
           return product.brand === activeFilter
         })
 
-    return filtered.sort((a, b) => {
+    // Create a copy of the array before sorting to avoid mutating the original
+    const sorted = [...filtered].sort((a, b) => {
       switch (sortBy) {
         case "name-asc":
           return a.brand.localeCompare(b.brand)
@@ -511,17 +862,52 @@ export default function DiaperStore() {
           return 0
       }
     })
+
+    return sorted
   }, [activeFilter, sortBy])
 
-  // Group products by category
+  // Group products by category and subcategory
   const groupedProducts = useMemo(() => {
-    if (activeFilter !== "Todas") {
+    if (activeFilter !== "Todas" && activeFilter !== "Mimos") {
       return [{ category: activeFilter, products: filteredProducts }]
     }
 
+    if (activeFilter === "Mimos") {
+      // Group Mimos products by subcategory
+      const subcategoryLabels: Record<string, string> = {
+        "Cuidados": "Cuidados",
+        "Brinquedos": "Brinquedos",
+        "Alimentação": "Alimentação",
+        "Acessórios": "Acessórios",
+        "Roupas": "Roupas",
+        "Equipamentos": "Equipamentos"
+      }
+
+      const groups: Record<string, typeof products> = {}
+
+      filteredProducts.forEach((product) => {
+        const groupKey = product.subcategory || "Outros"
+        if (!groups[groupKey]) {
+          groups[groupKey] = []
+        }
+        groups[groupKey].push(product)
+      })
+
+      // Define the order for Mimos subcategories
+      const subcategoryOrder = ["Cuidados", "Equipamentos", "Alimentação", "Acessórios", "Roupas", "Brinquedos"]
+      
+      return subcategoryOrder
+        .filter(subcategory => groups[subcategory] && groups[subcategory].length > 0)
+        .map(subcategory => ({
+          category: subcategoryLabels[subcategory] || subcategory,
+          products: groups[subcategory]
+        }))
+    }
+
+    // For "Todas", group by main category (Fraldas and Mimos)
     const categoryLabels: Record<string, string> = {
       "Fraldas": "Fraldas",
-      "Kits": "Kits"
+      "Mimos": "Mimos"
     }
 
     const groups: Record<string, typeof products> = {}
@@ -533,10 +919,15 @@ export default function DiaperStore() {
       groups[product.category].push(product)
     })
 
-    return Object.entries(groups).map(([category, products]) => ({
-      category: categoryLabels[category] || category,
-      products
-    }))
+    // Define the order: Fraldas first, then Mimos
+    const categoryOrder = ["Fraldas", "Mimos"]
+    
+    return categoryOrder
+      .filter(category => groups[category] && groups[category].length > 0)
+      .map(category => ({
+        category: categoryLabels[category] || category,
+        products: groups[category]
+      }))
   }, [filteredProducts, activeFilter])
 
   return (
@@ -697,7 +1088,7 @@ export default function DiaperStore() {
                       const quantityInCart = cartItem?.quantity || 0;
                       return (
                         <ProductCard
-                          key={`${product.id}-${quantityInCart}`}
+                          key={product.id}
                           product={product}
                           onAddToCart={addToCart}
                           cartItems={cart}
