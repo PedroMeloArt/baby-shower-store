@@ -35,6 +35,18 @@ const getAssetPath = (path: string) => {
   return `${basePath}${path}`
 }
 
+// Helper function to get route path with basePath (works in browser)
+const getRoutePath = (path: string) => {
+  // Check if we're in the browser and if the current location includes the basePath
+  if (typeof window !== 'undefined') {
+    const currentPath = window.location.pathname
+    if (currentPath.includes('/baby-shower-store')) {
+      return `/baby-shower-store${path}`
+    }
+  }
+  return path
+}
+
 // Product Data - Organized by Brand and Size
 const products: Product[] = [
   // ========================================
@@ -1200,8 +1212,8 @@ export default function DiaperStore() {
           setCustomerName('')
           setCustomerMessage('')
           setPaymentMethod(null)
-          // Redirect to success page
-          window.location.href = `/success?session_id=${sessionId}`
+          // Redirect to success page with basePath
+          window.location.href = getRoutePath(`/success?session_id=${sessionId}`)
         }}
       />
     </div>

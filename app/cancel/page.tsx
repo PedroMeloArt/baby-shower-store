@@ -4,6 +4,17 @@ import { useRouter } from "next/navigation"
 import { XCircle, ArrowLeft, ShoppingCart } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
+// Helper function to get route path with basePath (works in browser)
+const getRoutePath = (path: string) => {
+  if (typeof window !== 'undefined') {
+    const currentPath = window.location.pathname
+    if (currentPath.includes('/baby-shower-store')) {
+      return `/baby-shower-store${path}`
+    }
+  }
+  return path
+}
+
 export default function CancelPage() {
   const router = useRouter()
 
@@ -28,7 +39,7 @@ export default function CancelPage() {
         {/* Actions */}
         <div className="flex flex-col gap-3">
           <Button
-            onClick={() => router.push("/")}
+            onClick={() => router.push(getRoutePath("/"))}
             className="!bg-rose-800 hover:!bg-rose-700 !text-white px-8 py-4 text-lg rounded-2xl"
             style={{ backgroundColor: '#9f1239', color: '#ffffff' }}
           >
@@ -37,7 +48,7 @@ export default function CancelPage() {
           </Button>
           
           <Button
-            onClick={() => router.push("/#produtos")}
+            onClick={() => router.push(getRoutePath("/#produtos"))}
             variant="outline"
             className="px-8 py-4 text-lg rounded-2xl border-2 border-primary/20 hover:border-primary/30"
           >
