@@ -35,6 +35,14 @@ export function PixModal({ isOpen, onClose, amount, orderItems, customerName, cu
 
   useEffect(() => {
     if (isOpen) {
+      // Reset all states when modal opens
+      setPixCode(null)
+      setIsGenerating(true)
+      setError(null)
+      setCopySuccess(false)
+      setConfirmationError(null)
+      setIsConfirming(false)
+      // Generate new code
       generatePixCode()
     }
   }, [isOpen])
@@ -160,9 +168,9 @@ export function PixModal({ isOpen, onClose, amount, orderItems, customerName, cu
 
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-6">
-      <div className="bg-card rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-hidden bg-boutique-shadow-xl border border-primary/10 backdrop-luxury">
+      <div className="bg-card rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-hidden bg-boutique-shadow-xl border border-primary/10 backdrop-luxury flex flex-col">
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-primary/10">
+        <div className="flex items-center justify-between p-6 border-b border-primary/10 flex-shrink-0">
           <div className="space-y-1">
             <h2 className="text-2xl font-display text-premium">Pagamento via PIX</h2>
             <p className="text-sm text-muted-foreground">
@@ -180,7 +188,7 @@ export function PixModal({ isOpen, onClose, amount, orderItems, customerName, cu
         </div>
 
         {/* Content */}
-        <div className="p-8 overflow-y-auto max-h-[calc(90vh-120px)]">
+        <div className="p-8 overflow-y-auto flex-1">
           {/* Loading State */}
           {isGenerating && (
             <div className="flex flex-col items-center justify-center py-12">
@@ -319,12 +327,20 @@ export function PixModal({ isOpen, onClose, amount, orderItems, customerName, cu
 
         {/* Footer */}
         {pixCode && !isGenerating && !error && (
-          <div className="border-t border-primary/10 p-6 bg-accent/5 space-y-4">
+          <div className="border-t border-primary/10 p-6 bg-accent/5 space-y-4 flex-shrink-0">
             {/* Error Message */}
             {confirmationError && (
               <div className="bg-red-50 border border-red-200 rounded-2xl p-4 flex items-center gap-3">
                 <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0" />
                 <p className="text-sm text-red-800 font-medium">{confirmationError}</p>
+              </div>
+            )}
+            
+            {/* Helper text if name is missing */}
+            {!customerName.trim() && (
+              <div className="bg-amber-50 border border-amber-200 rounded-2xl p-3 flex items-center gap-2">
+                <AlertCircle className="w-4 h-4 text-amber-600 flex-shrink-0" />
+                <p className="text-xs text-amber-800">Por favor, preencha seu nome no carrinho antes de confirmar o pagamento</p>
               </div>
             )}
             
