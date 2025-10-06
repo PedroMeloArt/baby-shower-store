@@ -18,8 +18,8 @@ type Product = {
   count: string | number
   price: string
   category: string
-  rating: number
   description: string
+  image: string
 }
 
 type CartItem = Product & {
@@ -28,146 +28,280 @@ type CartItem = Product & {
 
 type PaymentMethod = "pix" | "card" | null
 
-// Product Data
+// Product Data - Organized by Brand and Size
 const products: Product[] = [
-  // Recém-Nascido
+  // ========================================
+  // BABYSEC
+  // ========================================
+  
+  // Babysec - Size P (Small)
   {
-    id: 1,
-    brand: "Pampers",
-    size: "RN",
-    count: 20,
-    price: "R$ 25,90",
+    id: 100,
+    brand: "Babysec",
+    size: "P",
+    count: 28,
+    price: "R$ 35,09",
     category: "Fraldas",
-    rating: 4.8,
-    description: "Proteção premium para recém-nascidos",
+    description: "Fralda Babysec tamanho P, pacote com 28 unidades",
+    image: "/images/products/Babysec_P_28.webp",
   },
   {
-    id: 2,
-    brand: "Huggies",
-    size: "RN",
+    id: 101,
+    brand: "Babysec",
+    size: "P",
+    count: 42,
+    price: "R$ 42,90",
+    category: "Fraldas",
+    description: "Fralda Babysec tamanho P, pacote com 42 unidades",
+    image: "/images/products/Babysec_P_42.webp",
+  },
+
+  // Babysec - Size M (Medium)
+  {
+    id: 102,
+    brand: "Babysec",
+    size: "M",
+    count: 38,
+    price: "R$ 49,90",
+    category: "Fraldas",
+    description: "Fralda Babysec tamanho M, pacote com 38 unidades",
+    image: "/images/products/Babysec_M_38.webp",
+  },
+  {
+    id: 103,
+    brand: "Babysec",
+    size: "M",
+    count: 68,
+    price: "R$ 84,90",
+    category: "Fraldas",
+    description: "Fralda Babysec tamanho M, pacote com 68 unidades",
+    image: "/images/products/Babysec_M_68.webp",
+  },
+
+  // Babysec - Size G (Large)
+  {
+    id: 104,
+    brand: "Babysec",
+    size: "G",
     count: 22,
-    price: "R$ 28,50",
+    price: "R$ 36,94",
     category: "Fraldas",
-    rating: 4.7,
-    description: "Suavidade e conforto garantidos",
+    description: "Fralda Babysec tamanho G, pacote com 22 unidades",
+    image: "/images/products/Babysec_G_22.webp",
   },
   {
-    id: 3,
-    brand: "MamyPoko",
+    id: 105,
+    brand: "Babysec",
+    size: "G",
+    count: 32,
+    price: "R$ 49,90",
+    category: "Fraldas",
+    description: "Fralda Babysec tamanho G, pacote com 32 unidades",
+    image: "/images/products/Babysec_G_32.webp",
+  },
+  {
+    id: 106,
+    brand: "Babysec",
+    size: "G",
+    count: 60,
+    price: "R$ 84,90",
+    category: "Fraldas",
+    description: "Fralda Babysec tamanho G, pacote com 60 unidades",
+    image: "/images/products/Babysec_G_60.webp",
+  },
+
+  // ========================================
+  // PAMPERS
+  // ========================================
+  
+  // Pampers - Size RN (Newborn)
+  {
+    id: 107,
+    brand: "Pampers",
     size: "RN",
-    count: 24,
-    price: "R$ 30,00",
+    count: 36,
+    price: "R$ 66,90",
     category: "Fraldas",
-    rating: 4.6,
-    description: "Absorção superior japonesa",
+    description: "Fralda Pampers Recém-Nascido, pacote com 36 unidades",
+    image: "/images/products/Pampers_RN_36.webp",
   },
 
-  // Tamanho P
+  // Pampers - Size P (Small)
   {
-    id: 4,
+    id: 108,
     brand: "Pampers",
     size: "P",
-    count: 18,
-    price: "R$ 32,90",
+    count: 40,
+    price: "R$ 82,90",
     category: "Fraldas",
-    rating: 4.8,
-    description: "Proteção premium para pequenos",
+    description: "Fralda Pampers tamanho P, pacote com 40 unidades",
+    image: "/images/products/Pampers_P_40.webp",
   },
   {
-    id: 5,
-    brand: "Huggies",
+    id: 109,
+    brand: "Pampers",
     size: "P",
-    count: 20,
-    price: "R$ 35,50",
+    count: 50,
+    price: "R$ 92,90",
     category: "Fraldas",
-    rating: 4.7,
-    description: "Conforto que acompanha o crescimento",
-  },
-  {
-    id: 6,
-    brand: "MamyPoko",
-    size: "P",
-    count: 22,
-    price: "R$ 38,00",
-    category: "Fraldas",
-    rating: 4.6,
-    description: "Tecnologia japonesa avançada",
+    description: "Fralda Pampers tamanho P, pacote com 50 unidades",
+    image: "/images/products/Pampers_P_50.webp",
   },
 
-  // Tamanho M
+  // Pampers - Size M (Medium)
   {
-    id: 7,
+    id: 110,
     brand: "Pampers",
     size: "M",
-    count: 16,
-    price: "R$ 40,90",
+    count: 52,
+    price: "R$ 67,90",
     category: "Fraldas",
-    rating: 4.8,
-    description: "Proteção premium média",
+    description: "Fralda Pampers tamanho M, pacote com 52 unidades",
+    image: "/images/products/Pampers_M_52.webp",
   },
   {
-    id: 8,
-    brand: "Huggies",
+    id: 111,
+    brand: "Pampers",
     size: "M",
-    count: 18,
-    price: "R$ 42,50",
+    count: 80,
+    price: "R$ 129,90",
     category: "Fraldas",
-    rating: 4.7,
-    description: "Flexibilidade e proteção",
+    description: "Fralda Pampers tamanho M, pacote com 80 unidades",
+    image: "/images/products/Pampers_M_80.webp",
   },
   {
-    id: 9,
-    brand: "MamyPoko",
+    id: 112,
+    brand: "Pampers",
     size: "M",
-    count: 20,
-    price: "R$ 45,00",
+    count: 112,
+    price: "R$ 154,90",
     category: "Fraldas",
-    rating: 4.6,
-    description: "Absorção de longa duração",
+    description: "Fralda Pampers tamanho M, pacote com 112 unidades",
+    image: "/images/products/Pampers_M_112.webp",
   },
 
-  // Tamanho G
+  // Pampers - Size G (Large)
   {
-    id: 10,
+    id: 113,
     brand: "Pampers",
     size: "G",
-    count: 14,
-    price: "R$ 45,90",
+    count: 30,
+    price: "R$ 82,90",
     category: "Fraldas",
-    rating: 4.8,
-    description: "Proteção premium grande",
+    description: "Fralda Pampers tamanho G, pacote com 30 unidades",
+    image: "/images/products/Pampers_G_30.webp",
   },
   {
-    id: 11,
-    brand: "Huggies",
+    id: 114,
+    brand: "Pampers",
     size: "G",
-    count: 16,
-    price: "R$ 48,50",
+    count: 68,
+    price: "R$ 149,90",
     category: "Fraldas",
-    rating: 4.7,
-    description: "Liberdade de movimento",
+    description: "Fralda Pampers tamanho G, pacote com 68 unidades",
+    image: "/images/products/Pampers_G_68.webp",
+  },
+  {
+    id: 115,
+    brand: "Pampers",
+    size: "G",
+    count: 94,
+    price: "R$ 213,90",
+    category: "Fraldas",
+    description: "Fralda Pampers tamanho G, pacote com 94 unidades",
+    image: "/images/products/Pampers_G_94.webp",
   },
 
-  // Kits
+  // ========================================
+  // MAMYPOKO
+  // ========================================
+  
+  // MamyPoko - Size RN (Newborn)
   {
-    id: 12,
-    brand: "Kit Misto",
-    size: "Variado",
-    count: "3 pacotes",
-    price: "R$ 95,00",
-    category: "Kits",
-    rating: 4.9,
-    description: "Combinação perfeita de marcas",
+    id: 116,
+    brand: "MamyPoko",
+    size: "RN",
+    count: 20,
+    price: "R$ 34,90",
+    category: "Fraldas",
+    description: "Fralda MamyPoko Recém-Nascido, pacote com 20 unidades",
+    image: "/images/products/MamyPoko_RN_20.webp",
   },
   {
-    id: 13,
-    brand: "Kit Crescimento",
-    size: "P+M+G",
-    count: "3 pacotes",
-    price: "R$ 120,00",
-    category: "Kits",
-    rating: 4.9,
-    description: "Acompanha todo o crescimento",
+    id: 117,
+    brand: "MamyPoko",
+    size: "RN",
+    count: 36,
+    price: "R$ 57,90",
+    category: "Fraldas",
+    description: "Fralda MamyPoko Recém-Nascido, pacote com 36 unidades",
+    image: "/images/products/MamyPoko_RN_36.webp",
+  },
+
+  // MamyPoko - Size P (Small)
+  {
+    id: 118,
+    brand: "MamyPoko",
+    size: "P",
+    count: 46,
+    price: "R$ 68,90",
+    category: "Fraldas",
+    description: "Fralda MamyPoko tamanho P, pacote com 46 unidades",
+    image: "/images/products/MamyPoko_P_46.webp",
+  },
+
+  // MamyPoko - Size M (Medium)
+  {
+    id: 119,
+    brand: "MamyPoko",
+    size: "M",
+    count: 34,
+    price: "R$ 39,90",
+    category: "Fraldas",
+    description: "Fralda MamyPoko tamanho M, pacote com 34 unidades",
+    image: "/images/products/MamyPoko_M_34.webp",
+  },
+  {
+    id: 120,
+    brand: "MamyPoko",
+    size: "M",
+    count: 68,
+    price: "R$ 129,90",
+    category: "Fraldas",
+    description: "Fralda MamyPoko tamanho M, pacote com 68 unidades",
+    image: "/images/products/MamyPoko_M_68.webp",
+  },
+
+  // MamyPoko - Size G (Large)
+  {
+    id: 121,
+    brand: "MamyPoko",
+    size: "G",
+    count: 28,
+    price: "R$ 39,90",
+    category: "Fraldas",
+    description: "Fralda MamyPoko tamanho G, pacote com 28 unidades",
+    image: "/images/products/MamyPoko_G_28.webp",
+  },
+  {
+    id: 122,
+    brand: "MamyPoko",
+    size: "G",
+    count: 50,
+    price: "R$ 109,90",
+    category: "Fraldas",
+    description: "Fralda MamyPoko tamanho G, pacote com 50 unidades",
+    image: "/images/products/MamyPoko_G_50.webp",
+  },
+  {
+    id: 123,
+    brand: "MamyPoko",
+    size: "G",
+    count: 60,
+    price: "R$ 129,90",
+    category: "Fraldas",
+    description: "Fralda MamyPoko tamanho G, pacote com 60 unidades",
+    image: "/images/products/MamyPoko_G_60.webp",
   },
 ]
 
@@ -177,7 +311,6 @@ const sortOptions = [
   { value: "name-desc", label: "Nome Z-A" },
   { value: "price-asc", label: "Menor preço" },
   { value: "price-desc", label: "Maior preço" },
-  { value: "rating", label: "Melhor avaliação" },
 ]
 
 const ProductCard = ({
@@ -185,7 +318,7 @@ const ProductCard = ({
   onAddToCart,
   cartItems,
   onUpdateQuantity,
-}: { 
+}: {
   product: Product
   onAddToCart: (product: Product) => void
   cartItems: CartItem[]
@@ -193,22 +326,27 @@ const ProductCard = ({
 }) => {
   const cartItem = cartItems.find(item => item.id === product.id);
   const quantityInCart = cartItem?.quantity || 0;
-  
+
 
   return (
     <Card className="group bg-card border border-primary/10 hover:border-primary/20 hover-lift bg-boutique-shadow hover:bg-boutique-shadow-lg transition-all duration-300 overflow-hidden backdrop-luxury h-full flex flex-col">
-      <div className="aspect-square bg-gradient-to-br from-accent/30 via-primary/5 to-accent/20 relative flex items-center justify-center">
+      <div className="aspect-square bg-gradient-to-br from-accent/30 via-primary/5 to-accent/20 relative flex items-center justify-center overflow-hidden">
         {/* Elegant background pattern */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,hsl(345,20%,96%)_100%)] opacity-30"></div>
-        
-        {/* Product image placeholder with luxury styling */}
-        <div className="relative">
-          <div className="text-6xl text-primary/30 group-hover:scale-110 transition-transform duration-500 ease-out">📦</div>
-          <div className="absolute inset-0 text-6xl text-primary/10 blur-sm group-hover:scale-105 transition-transform duration-500">📦</div>
+
+        {/* Product image */}
+        <div className="relative w-full h-full p-4">
+          <Image
+            src={product.image}
+            alt={product.description}
+            fill
+            className="object-contain group-hover:scale-105 transition-transform duration-500 ease-out"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
         </div>
-        
+
         {/* Subtle size badge */}
-        <div className="absolute top-4 right-4 text-sm font-medium text-muted-foreground/70">
+        <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium text-primary shadow-sm">
           {product.size}
         </div>
       </div>
@@ -226,7 +364,7 @@ const ProductCard = ({
 
         <div className="flex items-center justify-between mt-auto relative z-10">
           <span className="text-2xl font-display font-medium text-premium">{product.price}</span>
-          
+
           <div className="relative z-20">
             {quantityInCart === 0 ? (
               <button
@@ -310,7 +448,7 @@ export default function DiaperStore() {
     if (newQuantity === 0) {
       removeFromCart(productId)
     } else {
-      setCart((prevCart) => 
+      setCart((prevCart) =>
         prevCart.map((item) => (item.id === productId ? { ...item, quantity: newQuantity } : item))
       )
     }
@@ -332,11 +470,11 @@ export default function DiaperStore() {
       activeFilter === "Todas"
         ? products
         : products.filter((product) => {
-            if (activeFilter === "Kits") {
-              return product.category === "Kits"
-            }
-            return product.brand === activeFilter
-          })
+          if (activeFilter === "Kits") {
+            return product.category === "Kits"
+          }
+          return product.brand === activeFilter
+        })
 
     return filtered.sort((a, b) => {
       switch (sortBy) {
@@ -352,8 +490,6 @@ export default function DiaperStore() {
           const priceA2 = Number.parseFloat(a.price.replace("R$ ", "").replace(",", "."))
           const priceB2 = Number.parseFloat(b.price.replace("R$ ", "").replace(",", "."))
           return priceB2 - priceA2
-        case "rating":
-          return (b.rating || 0) - (a.rating || 0)
         default:
           return 0
       }
@@ -372,7 +508,7 @@ export default function DiaperStore() {
     }
 
     const groups: Record<string, typeof products> = {}
-    
+
     filteredProducts.forEach((product) => {
       if (!groups[product.category]) {
         groups[product.category] = []
@@ -399,8 +535,8 @@ export default function DiaperStore() {
 
         {/* Hero Section - Floating Decorative Elements */}
         <div className="absolute top-20 left-1/4 w-2 h-2 bg-primary/20 rounded-full animate-float"></div>
-        <div className="absolute top-40 right-1/3 w-3 h-3 bg-primary/15 rounded-full animate-float" style={{animationDelay: '2s'}}></div>
-        <div className="absolute bottom-20 left-1/3 w-1.5 h-1.5 bg-primary/25 rounded-full animate-float" style={{animationDelay: '4s'}}></div>
+        <div className="absolute top-40 right-1/3 w-3 h-3 bg-primary/15 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute bottom-20 left-1/3 w-1.5 h-1.5 bg-primary/25 rounded-full animate-float" style={{ animationDelay: '4s' }}></div>
 
         <div className="max-w-7xl mx-auto relative">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
@@ -432,11 +568,11 @@ export default function DiaperStore() {
               <div className="aspect-square bg-gradient-to-br from-primary/5 via-accent/10 to-primary/8 rounded-[2rem] flex items-center justify-center bg-boutique-shadow-xl border border-primary/10 overflow-hidden">
                 {/* Elegant overlay pattern */}
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,hsl(345,20%,96%)_70%)] opacity-50"></div>
-                
+
                 {/* Main image with luxury styling */}
                 <div className="relative w-full h-full flex items-center justify-center">
                   <Image
-                    src="/baby-shower-store/Sophia_2.png"
+                    src="/Sophia_2.png"
                     alt="Sophia - Beautiful baby portrait"
                     width={400}
                     height={400}
@@ -449,7 +585,7 @@ export default function DiaperStore() {
                   <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-primary/5 rounded-2xl"></div>
                 </div>
               </div>
-              
+
               {/* Sophisticated floating decorations */}
               <div className="absolute -top-6 -right-6 w-12 h-12 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl backdrop-luxury border border-primary/10 flex items-center justify-center">
                 <Star className="w-5 h-5 text-primary/50" />
@@ -475,11 +611,10 @@ export default function DiaperStore() {
                     key={tab}
                     variant={activeFilter === tab ? "default" : "ghost"}
                     onClick={() => setActiveFilter(tab)}
-                    className={`px-6 py-3 font-medium transition-all duration-300 rounded-xl hover-lift ${
-                      activeFilter === tab
+                    className={`px-6 py-3 font-medium transition-all duration-300 rounded-xl hover-lift ${activeFilter === tab
                         ? "!bg-rose-800 !text-white !border-rose-800 bg-boutique-shadow-lg border-2"
                         : "text-gray-600 hover:text-rose-800 hover:bg-rose-50 border-2 border-transparent hover:border-rose-300"
-                    }`}
+                      }`}
                     style={activeFilter === tab ? {
                       backgroundColor: '#9f1239',
                       color: '#ffffff',
@@ -511,53 +646,53 @@ export default function DiaperStore() {
 
         {/* Products Content */}
         <section className="py-28 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="w-8 h-px bg-primary/30"></div>
-              <span className="text-sm font-medium tracking-[0.2em] uppercase text-muted-foreground">produtos</span>
-              <div className="w-8 h-px bg-primary/30"></div>
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <div className="flex items-center justify-center gap-4 mb-6">
+                <div className="w-8 h-px bg-primary/30"></div>
+                <span className="text-sm font-medium tracking-[0.2em] uppercase text-muted-foreground">produtos</span>
+                <div className="w-8 h-px bg-primary/30"></div>
+              </div>
+              <h2 className="text-4xl lg:text-5xl font-display text-premium mb-6">Produtos</h2>
+              <p className="text-lg text-muted-foreground font-body-luxury max-w-2xl mx-auto leading-relaxed">
+                Produtos premium escolhidos especialmente para Sophia
+              </p>
             </div>
-            <h2 className="text-4xl lg:text-5xl font-display text-premium mb-6">Produtos</h2>
-            <p className="text-lg text-muted-foreground font-body-luxury max-w-2xl mx-auto leading-relaxed">
-              Produtos premium escolhidos especialmente para Sophia
-            </p>
-          </div>
 
-          <div className="space-y-16">
-            {groupedProducts.map((group, groupIndex) => (
-              <div key={group.category}>
-                {/* Category Header with Separator */}
-                <div className="mb-8">
-                  <div className="flex items-center gap-6">
-                    <div className="flex-1 h-px bg-gradient-to-r from-transparent via-primary/20 to-primary/20"></div>
-                    <h3 className="text-2xl font-display text-premium px-4">
-                      {group.category}
-                    </h3>
-                    <div className="flex-1 h-px bg-gradient-to-l from-transparent via-primary/20 to-primary/20"></div>
+            <div className="space-y-16">
+              {groupedProducts.map((group, groupIndex) => (
+                <div key={group.category}>
+                  {/* Category Header with Separator */}
+                  <div className="mb-8">
+                    <div className="flex items-center gap-6">
+                      <div className="flex-1 h-px bg-gradient-to-r from-transparent via-primary/20 to-primary/20"></div>
+                      <h3 className="text-2xl font-display text-premium px-4">
+                        {group.category}
+                      </h3>
+                      <div className="flex-1 h-px bg-gradient-to-l from-transparent via-primary/20 to-primary/20"></div>
+                    </div>
+                  </div>
+
+                  {/* Products Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                    {group.products.map((product) => {
+                      const cartItem = cart.find(item => item.id === product.id);
+                      const quantityInCart = cartItem?.quantity || 0;
+                      return (
+                        <ProductCard
+                          key={`${product.id}-${quantityInCart}`}
+                          product={product}
+                          onAddToCart={addToCart}
+                          cartItems={cart}
+                          onUpdateQuantity={updateQuantity}
+                        />
+                      );
+                    })}
                   </div>
                 </div>
-
-                {/* Products Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                  {group.products.map((product) => {
-                    const cartItem = cart.find(item => item.id === product.id);
-                    const quantityInCart = cartItem?.quantity || 0;
-                    return (
-                      <ProductCard 
-                        key={`${product.id}-${quantityInCart}`}
-                        product={product} 
-                        onAddToCart={addToCart}
-                        cartItems={cart}
-                        onUpdateQuantity={updateQuantity}
-                      />
-                    );
-                  })}
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
         </section>
       </div>
 
@@ -785,226 +920,224 @@ export default function DiaperStore() {
                 <>
                   <div className="p-8 space-y-6">
                     {cart.map((item) => (
-                    <div key={item.id} className="flex items-center gap-6 p-6 border border-primary/10 rounded-2xl bg-accent/20 backdrop-luxury hover-lift">
-                      <div className="w-20 h-20 bg-gradient-to-br from-accent/40 via-primary/10 to-accent/30 rounded-2xl flex items-center justify-center bg-boutique-shadow">
-                        <div className="text-3xl">📦</div>
+                      <div key={item.id} className="flex items-center gap-6 p-6 border border-primary/10 rounded-2xl bg-accent/20 backdrop-luxury hover-lift">
+                        <div className="w-20 h-20 bg-gradient-to-br from-accent/40 via-primary/10 to-accent/30 rounded-2xl flex items-center justify-center bg-boutique-shadow">
+                          <div className="text-3xl">📦</div>
+                        </div>
+                        <div className="flex-1 space-y-2">
+                          <h3 className="font-display text-lg text-premium">{item.brand}</h3>
+                          <p className="text-sm text-muted-foreground font-body-luxury">Tamanho {item.size}</p>
+                          <p className="text-sm text-muted-foreground font-body-luxury">
+                            {typeof item.count === "number" ? `${item.count} unidades` : item.count}
+                          </p>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                            className="w-10 h-10 p-0 rounded-2xl border-primary/20 hover:border-primary/30 bg-card hover-lift"
+                          >
+                            <Minus className="w-4 h-4" />
+                          </Button>
+                          <span className="w-12 text-center text-premium font-medium text-lg">{item.quantity}</span>
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                            className="w-10 h-10 p-0 rounded-2xl border-primary/20 hover:border-primary/30 bg-card hover-lift"
+                          >
+                            <Plus className="w-4 h-4" />
+                          </Button>
+                        </div>
+                        <div className="text-right space-y-2">
+                          <p className="font-display text-xl text-premium">{item.price}</p>
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => removeFromCart(item.id)}
+                            className="text-muted-foreground hover:text-primary text-sm font-body-luxury hover-lift"
+                          >
+                            Remover
+                          </Button>
+                        </div>
                       </div>
-                      <div className="flex-1 space-y-2">
-                        <h3 className="font-display text-lg text-premium">{item.brand}</h3>
-                        <p className="text-sm text-muted-foreground font-body-luxury">Tamanho {item.size}</p>
-                        <p className="text-sm text-muted-foreground font-body-luxury">
-                          {typeof item.count === "number" ? `${item.count} unidades` : item.count}
+                    ))}
+                  </div>
+
+                  <div className="border-t border-primary/10 p-8">
+                    <div className="flex items-center justify-between mb-8">
+                      <span className="text-2xl font-display text-premium">Total:</span>
+                      <span className="text-3xl font-display text-premium">
+                        R$ {cartTotal.toFixed(2).replace(".", ",")}
+                      </span>
+                    </div>
+
+                    <div className="mb-6">
+                      <h3 className="text-lg font-display text-premium mb-4">Seus Dados</h3>
+                      <div className="space-y-3">
+                        <div>
+                          <label className="block text-sm font-medium text-muted-foreground mb-2">
+                            Nome <span className="text-red-500">*</span>
+                          </label>
+                          <input
+                            type="text"
+                            value={customerName}
+                            onChange={(e) => setCustomerName(e.target.value)}
+                            placeholder="Seu nome completo"
+                            className="w-full px-4 py-3 bg-card border border-primary/20 rounded-xl text-premium focus:outline-none focus:ring-2 ring-luxury focus:border-primary/40 transition-all duration-200"
+                            required
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-muted-foreground mb-2">
+                            Mensagem para os pais (opcional)
+                          </label>
+                          <textarea
+                            value={customerMessage}
+                            onChange={(e) => setCustomerMessage(e.target.value)}
+                            placeholder="Deixe uma mensagem carinhosa para a família..."
+                            rows={3}
+                            className="w-full px-4 py-3 bg-card border border-primary/20 rounded-xl text-premium focus:outline-none focus:ring-2 ring-luxury focus:border-primary/40 transition-all duration-200 resize-none"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="mb-6">
+                      <h3 className="text-lg font-display text-premium mb-4">Forma de Pagamento</h3>
+                      <div className="grid grid-cols-2 gap-4">
+                        <Button
+                          variant={paymentMethod === "pix" ? "default" : "outline"}
+                          onClick={() => setPaymentMethod("pix")}
+                          className={`p-6 h-auto flex flex-col items-center gap-3 rounded-2xl hover-lift transition-all duration-300 ${paymentMethod === "pix"
+                              ? "!bg-rose-800 !text-white bg-boutique-shadow-lg border-2 !border-rose-800"
+                              : "border-2 border-rose-200 text-rose-700 hover:bg-rose-50 bg-card backdrop-luxury hover:text-rose-800"
+                            }`}
+                          style={paymentMethod === "pix" ? {
+                            backgroundColor: '#9f1239',
+                            color: '#ffffff',
+                            borderColor: '#9f1239'
+                          } : {}}
+                        >
+                          <QrCode className="w-8 h-8" />
+                          <span className="font-display text-lg">PIX</span>
+                          <span className="text-xs opacity-75">Instantâneo</span>
+                        </Button>
+                        <Button
+                          variant={paymentMethod === "card" ? "default" : "outline"}
+                          onClick={() => setPaymentMethod("card")}
+                          className={`p-6 h-auto flex flex-col items-center gap-3 rounded-2xl hover-lift transition-all duration-300 ${paymentMethod === "card"
+                              ? "!bg-rose-800 !text-white bg-boutique-shadow-lg border-2 !border-rose-800"
+                              : "border-2 border-rose-200 text-rose-700 hover:bg-rose-50 bg-card backdrop-luxury hover:text-rose-800"
+                            }`}
+                          style={paymentMethod === "card" ? {
+                            backgroundColor: '#9f1239',
+                            color: '#ffffff',
+                            borderColor: '#9f1239'
+                          } : {}}
+                        >
+                          <div className="text-3xl">💳</div>
+                          <span className="font-display text-lg">Cartão</span>
+                          <span className="text-xs opacity-75">Crédito/Débito</span>
+                        </Button>
+                      </div>
+                    </div>
+
+                    {paymentMethod === "card" && (
+                      <div className="mb-6 p-4 border border-primary/20 rounded-2xl bg-accent/20 backdrop-luxury">
+                        <h4 className="font-display text-base text-premium mb-3">Dados do Cartão</h4>
+                        <div className="space-y-3">
+                          <div className="p-3 bg-card border border-primary/10 rounded-xl text-sm text-muted-foreground bg-boutique-shadow">
+                            🔒 Processamento seguro via Stripe
+                          </div>
+                          <p className="text-xs text-muted-foreground">
+                            Dados protegidos com criptografia bancária
+                          </p>
+                        </div>
+                      </div>
+                    )}
+
+                    {paymentMethod === "pix" && (
+                      <div className="mb-6 p-4 border border-primary/20 rounded-2xl bg-accent/20 backdrop-luxury">
+                        <h4 className="font-display text-base text-premium mb-3">Pagamento PIX</h4>
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          Você receberá o código PIX após confirmar
                         </p>
                       </div>
-                      <div className="flex items-center gap-3">
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                          className="w-10 h-10 p-0 rounded-2xl border-primary/20 hover:border-primary/30 bg-card hover-lift"
-                        >
-                          <Minus className="w-4 h-4" />
-                        </Button>
-                        <span className="w-12 text-center text-premium font-medium text-lg">{item.quantity}</span>
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                          className="w-10 h-10 p-0 rounded-2xl border-primary/20 hover:border-primary/30 bg-card hover-lift"
-                        >
-                          <Plus className="w-4 h-4" />
-                        </Button>
-                      </div>
-                      <div className="text-right space-y-2">
-                        <p className="font-display text-xl text-premium">{item.price}</p>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          onClick={() => removeFromCart(item.id)}
-                          className="text-muted-foreground hover:text-primary text-sm font-body-luxury hover-lift"
-                        >
-                          Remover
-                        </Button>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                    )}
 
-                <div className="border-t border-primary/10 p-8">
-                <div className="flex items-center justify-between mb-8">
-                  <span className="text-2xl font-display text-premium">Total:</span>
-                  <span className="text-3xl font-display text-premium">
-                    R$ {cartTotal.toFixed(2).replace(".", ",")}
-                  </span>
-                </div>
-
-                <div className="mb-6">
-                  <h3 className="text-lg font-display text-premium mb-4">Seus Dados</h3>
-                  <div className="space-y-3">
-                    <div>
-                      <label className="block text-sm font-medium text-muted-foreground mb-2">
-                        Nome <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        value={customerName}
-                        onChange={(e) => setCustomerName(e.target.value)}
-                        placeholder="Seu nome completo"
-                        className="w-full px-4 py-3 bg-card border border-primary/20 rounded-xl text-premium focus:outline-none focus:ring-2 ring-luxury focus:border-primary/40 transition-all duration-200"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-muted-foreground mb-2">
-                        Mensagem para os pais (opcional)
-                      </label>
-                      <textarea
-                        value={customerMessage}
-                        onChange={(e) => setCustomerMessage(e.target.value)}
-                        placeholder="Deixe uma mensagem carinhosa para a família..."
-                        rows={3}
-                        className="w-full px-4 py-3 bg-card border border-primary/20 rounded-xl text-premium focus:outline-none focus:ring-2 ring-luxury focus:border-primary/40 transition-all duration-200 resize-none"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mb-6">
-                  <h3 className="text-lg font-display text-premium mb-4">Forma de Pagamento</h3>
-                  <div className="grid grid-cols-2 gap-4">
                     <Button
-                      variant={paymentMethod === "pix" ? "default" : "outline"}
-                      onClick={() => setPaymentMethod("pix")}
-                      className={`p-6 h-auto flex flex-col items-center gap-3 rounded-2xl hover-lift transition-all duration-300 ${
-                        paymentMethod === "pix"
-                          ? "!bg-rose-800 !text-white bg-boutique-shadow-lg border-2 !border-rose-800"
-                          : "border-2 border-rose-200 text-rose-700 hover:bg-rose-50 bg-card backdrop-luxury hover:text-rose-800"
-                      }`}
-                      style={paymentMethod === "pix" ? {
-                        backgroundColor: '#9f1239',
-                        color: '#ffffff',
-                        borderColor: '#9f1239'
-                      } : {}}
-                    >
-                      <QrCode className="w-8 h-8" />
-                      <span className="font-display text-lg">PIX</span>
-                      <span className="text-xs opacity-75">Instantâneo</span>
-                    </Button>
-                    <Button
-                      variant={paymentMethod === "card" ? "default" : "outline"}
-                      onClick={() => setPaymentMethod("card")}
-                      className={`p-6 h-auto flex flex-col items-center gap-3 rounded-2xl hover-lift transition-all duration-300 ${
-                        paymentMethod === "card"
-                          ? "!bg-rose-800 !text-white bg-boutique-shadow-lg border-2 !border-rose-800"
-                          : "border-2 border-rose-200 text-rose-700 hover:bg-rose-50 bg-card backdrop-luxury hover:text-rose-800"
-                      }`}
-                      style={paymentMethod === "card" ? {
-                        backgroundColor: '#9f1239',
-                        color: '#ffffff',
-                        borderColor: '#9f1239'
-                      } : {}}
-                    >
-                      <div className="text-3xl">💳</div>
-                      <span className="font-display text-lg">Cartão</span>
-                      <span className="text-xs opacity-75">Crédito/Débito</span>
-                    </Button>
-                  </div>
-                </div>
+                      className="w-full !bg-rose-800 hover:!bg-rose-700 !text-white py-4 rounded-2xl font-display text-lg bg-boutique-shadow hover:bg-boutique-shadow-lg transition-all duration-300 hover-lift border-2 !border-rose-600 disabled:!bg-gray-400 disabled:!text-gray-200 disabled:!border-gray-400 disabled:cursor-not-allowed"
+                      disabled={!paymentMethod || isProcessingCard || !customerName.trim()}
+                      onClick={async () => {
+                        if (!customerName.trim()) {
+                          alert('Por favor, preencha seu nome.');
+                          return;
+                        }
 
-                {paymentMethod === "card" && (
-                  <div className="mb-6 p-4 border border-primary/20 rounded-2xl bg-accent/20 backdrop-luxury">
-                    <h4 className="font-display text-base text-premium mb-3">Dados do Cartão</h4>
-                    <div className="space-y-3">
-                      <div className="p-3 bg-card border border-primary/10 rounded-xl text-sm text-muted-foreground bg-boutique-shadow">
-                        🔒 Processamento seguro via Stripe
-                      </div>
-                      <p className="text-xs text-muted-foreground">
-                        Dados protegidos com criptografia bancária
-                      </p>
-                    </div>
-                  </div>
-                )}
+                        if (paymentMethod === 'pix') {
+                          setShowPixModal(true);
+                        } else if (paymentMethod === 'card') {
+                          setIsProcessingCard(true);
+                          try {
+                            // Call new checkout endpoint with name and message
+                            const VERCEL_API_URL = 'https://baby-shower-stripe.vercel.app/api/checkout';
 
-                {paymentMethod === "pix" && (
-                  <div className="mb-6 p-4 border border-primary/20 rounded-2xl bg-accent/20 backdrop-luxury">
-                    <h4 className="font-display text-base text-premium mb-3">Pagamento PIX</h4>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      Você receberá o código PIX após confirmar
-                    </p>
-                  </div>
-                )}
-
-                <Button 
-                  className="w-full !bg-rose-800 hover:!bg-rose-700 !text-white py-4 rounded-2xl font-display text-lg bg-boutique-shadow hover:bg-boutique-shadow-lg transition-all duration-300 hover-lift border-2 !border-rose-600 disabled:!bg-gray-400 disabled:!text-gray-200 disabled:!border-gray-400 disabled:cursor-not-allowed" 
-                  disabled={!paymentMethod || isProcessingCard || !customerName.trim()}
-                  onClick={async () => {
-                    if (!customerName.trim()) {
-                      alert('Por favor, preencha seu nome.');
-                      return;
-                    }
-
-                    if (paymentMethod === 'pix') {
-                      setShowPixModal(true);
-                    } else if (paymentMethod === 'card') {
-                      setIsProcessingCard(true);
-                      try {
-                        // Call new checkout endpoint with name and message
-                        const VERCEL_API_URL = 'https://baby-shower-stripe.vercel.app/api/checkout';
-                        
-                        const response = await fetch(VERCEL_API_URL, {
-                          method: 'POST',
-                          headers: {
-                            'Content-Type': 'application/json',
-                          },
-                          body: JSON.stringify({
-                            items: cart.map(item => ({
-                              price_data: {
-                                currency: 'brl',
-                                product_data: {
-                                  name: `${item.brand} - Tamanho ${item.size}`,
-                                  description: item.description,
-                                },
-                                unit_amount: Math.round(parseFloat(item.price.replace('R$ ', '').replace(',', '.')) * 100),
+                            const response = await fetch(VERCEL_API_URL, {
+                              method: 'POST',
+                              headers: {
+                                'Content-Type': 'application/json',
                               },
-                              quantity: item.quantity,
-                            })),
-                            name: customerName.trim(),
-                            message: customerMessage.trim(),
-                          }),
-                        });
+                              body: JSON.stringify({
+                                items: cart.map(item => ({
+                                  price_data: {
+                                    currency: 'brl',
+                                    product_data: {
+                                      name: `${item.brand} - Tamanho ${item.size}`,
+                                      description: item.description,
+                                    },
+                                    unit_amount: Math.round(parseFloat(item.price.replace('R$ ', '').replace(',', '.')) * 100),
+                                  },
+                                  quantity: item.quantity,
+                                })),
+                                name: customerName.trim(),
+                                message: customerMessage.trim(),
+                              }),
+                            });
 
-                        if (!response.ok) {
-                          throw new Error('Failed to create checkout session');
-                        }
+                            if (!response.ok) {
+                              throw new Error('Failed to create checkout session');
+                            }
 
-                        const data = await response.json();
-                        
-                        // Redirect to Stripe Checkout
-                        if (data.url) {
-                          window.location.href = data.url;
+                            const data = await response.json();
+
+                            // Redirect to Stripe Checkout
+                            if (data.url) {
+                              window.location.href = data.url;
+                            }
+                          } catch (error) {
+                            console.error('Stripe checkout error:', error);
+                            alert('Erro ao processar pagamento. Tente novamente.');
+                            setIsProcessingCard(false);
+                          }
                         }
-                      } catch (error) {
-                        console.error('Stripe checkout error:', error);
-                        alert('Erro ao processar pagamento. Tente novamente.');
-                        setIsProcessingCard(false);
-                      }
-                    }
-                  }}
-                  style={!paymentMethod || !customerName.trim() ? {} : {
-                    backgroundColor: '#9f1239',
-                    color: '#ffffff',
-                    borderColor: '#9f1239'
-                  }}
-                >
-                  {isProcessingCard 
-                    ? "Processando..."
-                    : paymentMethod === "pix"
-                      ? "Gerar PIX"
-                      : paymentMethod === "card"
-                        ? "Finalizar Compra"
-                        : "Selecione a forma de pagamento"}
-                </Button>
-              </div>
+                      }}
+                      style={!paymentMethod || !customerName.trim() ? {} : {
+                        backgroundColor: '#9f1239',
+                        color: '#ffffff',
+                        borderColor: '#9f1239'
+                      }}
+                    >
+                      {isProcessingCard
+                        ? "Processando..."
+                        : paymentMethod === "pix"
+                          ? "Gerar PIX"
+                          : paymentMethod === "card"
+                            ? "Finalizar Compra"
+                            : "Selecione a forma de pagamento"}
+                    </Button>
+                  </div>
                 </>
               )}
             </div>
@@ -1025,7 +1158,7 @@ export default function DiaperStore() {
           <ShoppingCart className="w-6 h-6 mr-4 group-hover:scale-110 transition-transform duration-300" />
           <span className="font-medium text-base">Carrinho</span>
           {cartItemsCount > 0 && (
-            <div 
+            <div
               className="absolute -top-2 -right-2 min-w-[24px] h-6 bg-red-600 text-white text-sm font-bold flex items-center justify-center rounded-full border-2 border-white shadow-lg"
               style={{
                 backgroundColor: '#dc2626',
