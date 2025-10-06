@@ -5,16 +5,8 @@ import { useSearchParams, useRouter } from "next/navigation"
 import { CheckCircle, Package, Heart, ArrowLeft, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-// Helper function to get route path with basePath (works in browser)
-const getRoutePath = (path: string) => {
-  if (typeof window !== 'undefined') {
-    const currentPath = window.location.pathname
-    if (currentPath.includes('/baby-shower-store')) {
-      return `/baby-shower-store${path}`
-    }
-  }
-  return path
-}
+// Note: router.push() automatically handles basePath in Next.js
+// We don't need to manually add it for router navigation
 
 type Purchase = {
   purchase_id: string
@@ -105,7 +97,7 @@ export default function SuccessPage() {
           <h1 className="text-2xl font-display text-premium mb-4">Erro</h1>
           <p className="text-muted-foreground mb-6">{error || "Compra não encontrada"}</p>
           <Button
-            onClick={() => router.push(getRoutePath("/"))}
+            onClick={() => router.push("/")}
             className="!bg-rose-800 hover:!bg-rose-700 !text-white"
             style={{ backgroundColor: '#9f1239', color: '#ffffff' }}
           >
@@ -255,7 +247,7 @@ export default function SuccessPage() {
         {/* Actions */}
         <div className="flex justify-center">
           <Button
-            onClick={() => router.push(getRoutePath("/"))}
+            onClick={() => router.push("/")}
             className="!bg-rose-800 hover:!bg-rose-700 !text-white px-8 py-6 text-lg rounded-2xl"
             style={{ backgroundColor: '#9f1239', color: '#ffffff' }}
           >
