@@ -28,6 +28,13 @@ type CartItem = Product & {
 
 type PaymentMethod = "pix" | "card" | null
 
+// Helper function to get asset path with basePath for production
+const getAssetPath = (path: string) => {
+  // In production (static export), prepend the basePath
+  const basePath = process.env.NODE_ENV === 'production' ? '/baby-shower-store' : ''
+  return `${basePath}${path}`
+}
+
 // Product Data - Organized by Brand and Size
 const products: Product[] = [
   // ========================================
@@ -335,13 +342,11 @@ const ProductCard = ({
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,hsl(345,20%,96%)_100%)] opacity-30"></div>
 
         {/* Product image */}
-        <div className="relative w-full h-full p-4">
-          <Image
-            src={product.image}
+        <div className="relative w-full h-full p-4 flex items-center justify-center">
+          <img
+            src={getAssetPath(product.image)}
             alt={product.description}
-            fill
-            className="object-contain group-hover:scale-105 transition-transform duration-500 ease-out"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 ease-out"
           />
         </div>
 
@@ -572,7 +577,7 @@ export default function DiaperStore() {
                 {/* Main image with luxury styling */}
                 <div className="relative w-full h-full flex items-center justify-center">
                   <Image
-                    src="/Sophia_2.png"
+                    src={getAssetPath("/Sophia_2.png")}
                     alt="Sophia - Beautiful baby portrait"
                     width={400}
                     height={400}
