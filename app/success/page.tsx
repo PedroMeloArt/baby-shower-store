@@ -13,8 +13,21 @@ type Purchase = {
   email: string
   amount_total: number
   currency: string
-  items: { desc?: string | null; qty?: number | null; subtotal?: number | null }[]
+  payment_method: 'card' | 'pix'
+  status: 'pending' | 'paid' | 'cancelled'
+  items: {
+    description: string
+    quantity: number
+    price_per_unit: number
+    subtotal: number
+    brand?: string
+    size?: string
+    count?: number
+  }[]
   created_at: string
+  confirmed_at?: string
+  pix_txid?: string
+  pix_code?: string
 }
 
 export default function SuccessPage() {
@@ -133,6 +146,41 @@ export default function SuccessPage() {
                 <span className="font-medium text-premium">{purchase.email}</span>
               </div>
             )}
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">Método de Pagamento:</span>
+              <span className="font-medium text-premium">
+                {purchase.payment_method === 'pix' ? '💰 PIX' : '💳 Cartão'}
+              </span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">Status:</span>
+              <span className={`font-medium ${
+                purchase.status === 'paid' ? 'text-green-600' : 
+                purchase.status === 'pending' ? 'text-amber-600' : 
+                'text-red-600'
+              }`}>
+                {purchase.status === 'paid' ? '✓ Pago' : 
+                 purchase.status === 'pending' ? '⏳ Pendente' : 
+                 '✕ Cancelado'}
+              </span>
+            </div>
+            {purchase.confirmed_at && (
+              <div className="flex justify-between">
+                <span className="text-muted-foreground">Confirmado em:</span>
+                <span className="font-medium text-premium">
+                  {new Date(purchase.confirmed_at).toLocaleString('pt-BR', {
+                    dateStyle: 'short',
+                    timeStyle: 'short'
+                  })}
+                </span>
+              </div>
+            )}
+            {purchase.pix_txid && (
+              <div className="flex justify-between">
+                <span className="text-muted-foreground">ID Transação PIX:</span>
+                <span className="font-mono text-sm font-medium text-premium">{purchase.pix_txid}</span>
+              </div>
+            )}
             <div className="flex justify-between items-start">
               <span className="text-muted-foreground">Total Pago:</span>
               <span className="text-2xl font-display text-premium">R$ {amountInReais}</span>
@@ -148,15 +196,13 @@ export default function SuccessPage() {
                   <div className="flex items-center gap-3">
                     <div className="text-2xl">📦</div>
                     <div>
-                      <p className="font-medium text-premium">{item.desc}</p>
-                      <p className="text-sm text-muted-foreground">Qtd: {item.qty}</p>
+                      <p className="font-medium text-premium">{item.description}</p>
+                      <p className="text-sm text-muted-foreground">Qtd: {item.quantity}</p>
                     </div>
                   </div>
-                  {item.subtotal && (
-                    <span className="font-medium text-premium">
-                      R$ {(item.subtotal / 100).toFixed(2).replace(".", ",")}
-                    </span>
-                  )}
+                  <span className="font-medium text-premium">
+                    R$ {(item.subtotal / 100).toFixed(2).replace(".", ",")}
+                  </span>
                 </div>
               ))}
             </div>
